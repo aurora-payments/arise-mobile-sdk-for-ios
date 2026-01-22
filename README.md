@@ -39,6 +39,64 @@ Then add the dependency to your target:
 3. Select version rule (e.g., "Up to Next Major Version")
 4. Click "Add Package"
 
+## Configuration
+
+### Info.plist
+
+Add the following keys to your app's `Info.plist` for Tap to Pay functionality:
+
+```xml
+<key>PRODUCT_TEAM_IDENTIFIER</key>
+<string>YOUR_PSP_TEAM_ID</string>
+
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Location access is required for Tap to Pay functionality</string>
+```
+
+> **Note:** `PRODUCT_TEAM_IDENTIFIER` is ARISE's Apple Team ID required for Tap to Pay on iPhone. You can find it in [Apple Developer Account](https://developer.apple.com/account/resources/certificates) — displayed in the top right corner next to the company name.
+
+### Signing & Capabilities
+
+In Xcode, add the required capabilities for Tap to Pay:
+
+1. Select your app target
+2. Go to **Signing & Capabilities** tab
+3. Click **"+ Capability"** and add:
+   - **"Tap to Pay on iPhone"**
+   - **"Near Field Communication Tag Reading"**
+
+This will automatically:
+- Create an entitlements file with `com.apple.developer.proximity-reader.payment.acceptance`
+- Add NFC entitlement for card reading
+- Update your provisioning profile
+
+> **Important:** Tap to Pay capability requires **prior approval from Apple**.
+>
+> 1. Request access at [developer.apple.com/contact/request/tap-to-pay-on-iphone](https://developer.apple.com/contact/request/tap-to-pay-on-iphone/)
+> 2. Fill out the form with your company and app information
+> 3. Wait for Apple's approval (this may take time)
+> 4. After approval, the capability will appear in your Developer Portal
+>
+> Without Apple's approval, you will see the error: *"Entitlement com.apple.developer.proximity-reader.payment.acceptance not found"*
+
+### Location Permission Requirement
+
+**Important:** Tap to Pay on iPhone requires location permission to be **granted** by the user.
+
+- The app must request `When In Use` location authorization
+- User must **accept** the location permission dialog
+- If permission is denied, Tap to Pay functionality will not work
+- You can check location permission status using `sdk.ttp.checkCompatibility()` method
+
+```swift
+// Check if location permission is granted
+let result = sdk.ttp.checkCompatibility()
+if result.locationPermission != .granted {
+    // Request location permission from user
+    locationManager.requestWhenInUseAuthorization()
+}
+```
+
 ## Quick Start
 
 ```swift
