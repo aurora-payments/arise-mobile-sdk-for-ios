@@ -24903,14 +24903,13 @@ public struct PaymentSettingsResponse {
   public let availableTransactionTypes: [AriseMobile.NamedOption]
   public let availablePaymentProcessors: [AriseMobile.PaymentProcessor]
   public let avs: AriseMobile.AvsOptions?
-  public let isCustomerCardSavingByTerminalEnabled: Swift.Bool
   public let companyName: Swift.String?
   public let mccCode: Swift.String?
   public let currencyCode: Swift.String?
   public let currencyId: Swift.Int32?
   public let countryCode: Swift.String?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(availableCurrencies: [AriseMobile.NamedOption], zeroCostProcessingOptionId: Swift.Int32?, zeroCostProcessingOption: Swift.String?, defaultSurchargeRate: Swift.Double?, defaultCashDiscountRate: Swift.Double?, defaultDualPricingRate: Swift.Double?, isTipsEnabled: Swift.Bool, defaultTipsOptions: [Swift.Double]?, availableCardTypes: [AriseMobile.NamedOption], availableTransactionTypes: [AriseMobile.NamedOption], availablePaymentProcessors: [AriseMobile.PaymentProcessor], avs: AriseMobile.AvsOptions?, isCustomerCardSavingByTerminalEnabled: Swift.Bool, companyName: Swift.String? = nil, mccCode: Swift.String? = nil, currencyCode: Swift.String? = nil, currencyId: Swift.Int32? = nil, countryCode: Swift.String? = nil)
+  public init(availableCurrencies: [AriseMobile.NamedOption], zeroCostProcessingOptionId: Swift.Int32?, zeroCostProcessingOption: Swift.String?, defaultSurchargeRate: Swift.Double?, defaultCashDiscountRate: Swift.Double?, defaultDualPricingRate: Swift.Double?, isTipsEnabled: Swift.Bool, defaultTipsOptions: [Swift.Double]?, availableCardTypes: [AriseMobile.NamedOption], availableTransactionTypes: [AriseMobile.NamedOption], availablePaymentProcessors: [AriseMobile.PaymentProcessor], avs: AriseMobile.AvsOptions?, companyName: Swift.String? = nil, mccCode: Swift.String? = nil, currencyCode: Swift.String? = nil, currencyId: Swift.Int32? = nil, countryCode: Swift.String? = nil)
   #endif
 }
 public struct ApiPermissionsResponse : Swift.Codable, Swift.Hashable, Swift.Sendable {
