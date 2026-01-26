@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
-// swift-module-flags: -target arm64-apple-ios17.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AriseMobile
+// swift-module-flags: -target arm64-apple-ios18.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AriseMobile
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import CloudCommerce
 import CoreLocation
@@ -21,7 +21,7 @@ import _SwiftConcurrencyShims
 import os.log
 import os
 public struct DeviceInfo : Swift.Sendable {
-  public let deviceId: Swift.String?
+  public let deviceId: Swift.String
   public let deviceName: Swift.String?
   public let lastLoginAt: Foundation.Date?
   public let tapToPayStatus: Swift.String?
@@ -24663,7 +24663,8 @@ public enum CreateMethodId : Swift.Int, Swift.CaseIterable {
   #endif
   public func setLogLevel(_ level: AriseMobile.LogLevel)
   public func getLogLevel() -> AriseMobile.LogLevel
-  public func authenticate(clientId: Swift.String, clientSecret: Swift.String) async throws -> AriseMobile.AuthenticationResult
+  @discardableResult
+  public func authenticate(clientId: Swift.String, clientSecret: Swift.String) async throws -> Swift.Bool
   public func getPermissions() async throws -> AriseMobile.ApiPermissionsResponse
   public func getCloudCommerceVersion() throws -> Swift.String
   public func getVersion() -> Swift.String
@@ -24672,13 +24673,14 @@ public enum CreateMethodId : Swift.Int, Swift.CaseIterable {
   public func getAccessToken() async -> Swift.String?
   #endif
   public func clearStoredToken()
-  public func refreshAccessToken() async throws -> AriseMobile.AuthenticationResult
+  @discardableResult
+  public func refreshAccessToken() async throws -> Swift.Bool
   #if compiler(>=5.3) && $NonescapableTypes
   public func getTransactions(filters: AriseMobile.TransactionFilters? = nil) async throws -> AriseMobile.TransactionsResponse
   #endif
   public func getTransactionDetails(id: Swift.String) async throws -> AriseMobile.TransactionDetails
-  public func submitAuthTransaction(input: AriseMobile.AuthorizationRequest) async throws -> AriseMobile.AuthorizationResponse
-  public func submitSaleTransaction(input: AriseMobile.AuthorizationRequest) async throws -> AriseMobile.AuthorizationResponse
+  public func submitAuthTransaction(input: AriseMobile.CardTransactionRequest) async throws -> AriseMobile.CardTransactionResponse
+  public func submitSaleTransaction(input: AriseMobile.CardTransactionRequest) async throws -> AriseMobile.CardTransactionResponse
   public func calculateAmount(request: AriseMobile.CalculateAmountRequest) async throws -> AriseMobile.CalculateAmountResponse
   public func voidTransaction(transactionId: Swift.String) async throws -> AriseMobile.TransactionResponse
   public func captureTransaction(transactionId: Swift.String, amount: Swift.Double) async throws -> AriseMobile.TransactionResponse
@@ -24868,15 +24870,6 @@ public enum AuthenticationError : Swift.Error, Foundation.LocalizedError {
   }
   #endif
 }
-public struct AuthenticationResult {
-  public let accessToken: Swift.String
-  public let refreshToken: Swift.String?
-  public let expiresIn: Swift.Int
-  public let tokenType: Swift.String
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init(accessToken: Swift.String, refreshToken: Swift.String?, expiresIn: Swift.Int, tokenType: Swift.String)
-  #endif
-}
 public struct AchDetailsDto : Swift.Equatable {
   public let customerAccountNumber: Swift.String?
   public let customerRoutingNumber: Swift.String?
@@ -24950,16 +24943,16 @@ public struct AmountDto {
   public var totalAmount: Swift.Double
   public init(baseAmount: Swift.Double, percentageOffAmount: Swift.Double, percentageOffRate: Swift.Double, cashDiscountAmount: Swift.Double, cashDiscountRate: Swift.Double, surchargeAmount: Swift.Double, surchargeRate: Swift.Double, tipAmount: Swift.Double, tipRate: Swift.Double, taxAmount: Swift.Double, taxRate: Swift.Double, totalAmount: Swift.Double)
 }
-public struct AuthorizationRequest {
+public struct CardTransactionRequest {
   public let paymentProcessorId: Swift.String
   public let amount: Swift.Double
   public let currencyId: Swift.Int32
   public let cardDataSource: AriseMobile.CardDataSource
   public let paymentMethodId: Swift.String?
   public let accountNumber: Swift.String?
-  public let securityCode: Swift.String?
   public let expirationMonth: Swift.Int32?
   public let expirationYear: Swift.Int32?
+  public let securityCode: Swift.String?
   public let track1: Swift.String?
   public let track2: Swift.String?
   public let emvTags: [Swift.String]?
@@ -24982,7 +24975,7 @@ public struct AuthorizationRequest {
   public let l2: AriseMobile.L2Data?
   public let l3: AriseMobile.L3Data?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(paymentProcessorId: Swift.String, amount: Swift.Double, currencyId: Swift.Int32, cardDataSource: AriseMobile.CardDataSource, paymentMethodId: Swift.String? = nil, accountNumber: Swift.String? = nil, securityCode: Swift.String? = nil, expirationMonth: Swift.Int32? = nil, expirationYear: Swift.Int32? = nil, track1: Swift.String? = nil, track2: Swift.String? = nil, emvTags: [Swift.String]? = nil, emvPaymentAppVersion: Swift.String? = nil, customerId: Swift.String? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, useCardPrice: Swift.Bool? = nil, billingAddress: AriseMobile.AddressDto? = nil, shippingAddress: AriseMobile.AddressDto? = nil, contactInfo: AriseMobile.ContactInfoDto? = nil, pin: Swift.String? = nil, pinKsn: Swift.String? = nil, emvFallbackCondition: AriseMobile.EMVFallbackCondition? = nil, emvFallbackLastChipRead: AriseMobile.EMVFallbackLastChipRead? = nil, referenceId: Swift.String? = nil, customerInitiatedTransaction: Swift.Bool? = nil, l2: AriseMobile.L2Data? = nil, l3: AriseMobile.L3Data? = nil) throws
+  public init(paymentProcessorId: Swift.String, amount: Swift.Double, currencyId: Swift.Int32, cardDataSource: AriseMobile.CardDataSource, paymentMethodId: Swift.String? = nil, accountNumber: Swift.String? = nil, expirationMonth: Swift.Int32? = nil, expirationYear: Swift.Int32? = nil, securityCode: Swift.String? = nil, track1: Swift.String? = nil, track2: Swift.String? = nil, emvTags: [Swift.String]? = nil, emvPaymentAppVersion: Swift.String? = nil, customerId: Swift.String? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, useCardPrice: Swift.Bool? = nil, billingAddress: AriseMobile.AddressDto? = nil, shippingAddress: AriseMobile.AddressDto? = nil, contactInfo: AriseMobile.ContactInfoDto? = nil, pin: Swift.String? = nil, pinKsn: Swift.String? = nil, emvFallbackCondition: AriseMobile.EMVFallbackCondition? = nil, emvFallbackLastChipRead: AriseMobile.EMVFallbackLastChipRead? = nil, referenceId: Swift.String? = nil, customerInitiatedTransaction: Swift.Bool? = nil, l2: AriseMobile.L2Data? = nil, l3: AriseMobile.L3Data? = nil) throws
   #endif
 }
 public struct SourceResponseDto {
@@ -24995,7 +24988,7 @@ public struct SuggestedTipsDto {
   public let tipPercent: Swift.Double
   public let tipAmount: Swift.Double
 }
-public struct AuthorizationResponse {
+public struct CardTransactionResponse {
   public let transactionId: Swift.String?
   public let transactionDateTime: Foundation.Date?
   public let typeId: Swift.Int32?
@@ -25073,14 +25066,14 @@ public enum AvsResponseResult : Swift.Int, Swift.Equatable {
 }
 public struct CalculateAmountRequest {
   public let amount: Swift.Double
+  public let currencyId: Swift.Int32
   public let percentageOffRate: Swift.Double?
   public let surchargeRate: Swift.Double?
   public let tipAmount: Swift.Double?
   public let tipRate: Swift.Double?
-  public let currencyId: Swift.Int32?
   public let useCardPrice: Swift.Bool?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(amount: Swift.Double, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil, currencyId: Swift.Int32? = nil, useCardPrice: Swift.Bool? = nil)
+  public init(amount: Swift.Double, currencyId: Swift.Int32 = 1, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil, useCardPrice: Swift.Bool? = nil)
   #endif
 }
 public struct CalculateAmountResponse {
@@ -25373,14 +25366,14 @@ public struct TransactionDetails {
 public struct TransactionFilters {
   public let page: Swift.Int?
   public let pageSize: Swift.Int?
-  public let asc: Swift.Bool?
   public let orderBy: Swift.String?
+  public let asc: Swift.Bool?
   public let createMethodId: AriseMobile.CreateMethodId?
   public let createdById: Swift.String?
   public let batchId: Swift.String?
   public let noBatch: Swift.Bool?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(page: Swift.Int? = nil, pageSize: Swift.Int? = nil, asc: Swift.Bool? = nil, orderBy: Swift.String? = nil, createMethodId: AriseMobile.CreateMethodId? = nil, createdById: Swift.String? = nil, batchId: Swift.String? = nil, noBatch: Swift.Bool? = nil) throws
+  public init(page: Swift.Int? = nil, pageSize: Swift.Int? = nil, orderBy: Swift.String? = nil, asc: Swift.Bool? = nil, createMethodId: AriseMobile.CreateMethodId? = nil, createdById: Swift.String? = nil, batchId: Swift.String? = nil, noBatch: Swift.Bool? = nil) throws
   #endif
 }
 public struct TransactionOperation {

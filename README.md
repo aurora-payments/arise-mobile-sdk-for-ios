@@ -4,7 +4,7 @@ Official iOS SDK for ARISE Payment Platform - enables Tap to Pay on iPhone and p
 
 ## Requirements
 
-- iOS 15.0+
+- iOS 18.0+
 - Xcode 15.0+
 - Swift 5.9+
 - **Physical iPhone XS or later** (Tap to Pay is not supported on simulators)
