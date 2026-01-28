@@ -24613,6 +24613,7 @@ public enum Operations {
   }
 }
 public enum TTPError : Swift.Error, Foundation.LocalizedError {
+  case notCompatible([Swift.String])
   case notActive(Swift.String)
   case sdkNotInitialized
   case configurationFailed(Swift.String, Swift.String?)

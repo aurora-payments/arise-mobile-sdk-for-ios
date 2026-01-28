@@ -10,23 +10,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		wRLkpvGD7aacVLs7IH6mmq6ZH3k=
+		3+ZYoQ9I3kylmy2PhHLA58NAHD8=
 		</data>
 		<key>Modules/ARISE.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		EKmwrYI/6DyDAvGlHKk7zui5yCc=
+		97fVhShvwJ+3xynsHURJMS9Xq5M=
 		</data>
 		<key>Modules/ARISE.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		P8AvftIbmw+SXYB3sxycp6UJuIU=
+		zLwLV3YL5rfBzehf2W0SLgUYwuI=
 		</data>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		nJwZnGCi1ikr3SnvTIiY7oNxuUM=
+		vB+Z5eN9mR+iArtY90MtUx5Kl4c=
 		</data>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		5vO+Xc5E+Bg85q3rVlsUd8E+308=
+		Nkf4Rf7y03cNbaMaBMfnktqcO2k=
 		</data>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -34,19 +34,19 @@
 		</data>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		/p+nHD49XqlCf0kEwE2Jpq3sqxA=
+		puHZfT8FXu+JUVQieFKZO9ZxYIU=
 		</data>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		cCrDbhuYiMw1owrvvjX5Jcc3YKA=
+		FLlwOgV2F+amMbZSdXxbmDr7I8w=
 		</data>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		nJwZnGCi1ikr3SnvTIiY7oNxuUM=
+		vB+Z5eN9mR+iArtY90MtUx5Kl4c=
 		</data>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		WHp2F7jFhBRuYuoEVMQ/LZF4wgw=
+		CjZgtb1zr4gCLXhikuy0Yw2gSmo=
 		</data>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		4Ho/xLQGcY0sutGIIUZhwiRev3Y=
+		HmqIEZZ59Cfsc5AeqAX4DLlgJow=
 		</data>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ORj9MpJsTQUXHEjl6Xp0RIm+OFs=
+		yfhg67U1K3rbOhQxqx3JjZdsdcw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -78,28 +78,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OOMjyNDT/js7Za12gEZpg/D/OdR7uaDW6D4c9FwYBiQ=
+			zBSuGA/RaV+HhcTzh/QIaZnM0mhLU4UFZGa5Jlf+IPs=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			etYIMviK0GgPY8myPf/VQ7YFTh9evJm8ukimqD89/sw=
+			RzsdhiRC9xP5YVTLyY3MCCisbn2x17A5iSV/SeczWv4=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5uywWDSJJIJ4faR/wjDQaIKXFMVFqsxmPEkuUTfTOfE=
+			HUl/trfMzBFJp17k46hzrqV+kJy4/eH8ggNrKPIeh68=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IMv+JErl2ppgB/C1q/2uQe+gP1djyMUz40vKspiYue8=
+			p+FW+03n6Y5et3XxsZOzHwjjRMhvENiy58Rxwtrd+A4=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -113,28 +113,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			z7u7MdsIpguyHdKH2VoM58y6ktmfzkk3JVZUT4VoMYQ=
+			x0nrSnZHY4+SvDLqFsrCs00qC77Ve5N+TLXEjQJnmxA=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			W3ApC755p0VsMF7AJsoM5NvbUkVBoCHfxZZ9wFHv7cQ=
+			YnH8u6vMPeV3XsRLWYgWQQgtsDcVYIxrKaoub0H95AU=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5uywWDSJJIJ4faR/wjDQaIKXFMVFqsxmPEkuUTfTOfE=
+			HUl/trfMzBFJp17k46hzrqV+kJy4/eH8ggNrKPIeh68=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DuP4racmgmC+1USstXiuRY+uooClkME+/Pjoxtzk+y0=
+			YlEdeOxTqqjJ9U4hdCkgYIfmk+ujgikEUtsdfYJmH6A=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -148,14 +148,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zxRq8jepXKjR0FaSnQpV7FO12LDJYlGx/PJAK78uLoI=
+			jo/mWdILf4WLDaogSTazeU5PSHkgLE8MEXIA6XQbasY=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O57C3c4sTa7QsREDvd1Xybyp4ixvsYYKZ0nTu5FnB8I=
+			vsE5pHq+7znE5kQR3IqQFAhYoWjkao9i09w0guK9I+I=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
