@@ -24963,7 +24963,6 @@ public struct CardTransactionRequest {
   public let tipRate: Swift.Double?
   public let percentageOffRate: Swift.Double?
   public let surchargeRate: Swift.Double?
-  public let useCardPrice: Swift.Bool?
   public let billingAddress: ARISE.AddressDto?
   public let shippingAddress: ARISE.AddressDto?
   public let contactInfo: ARISE.ContactInfoDto?
@@ -24976,7 +24975,7 @@ public struct CardTransactionRequest {
   public let l2: ARISE.L2Data?
   public let l3: ARISE.L3Data?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(paymentProcessorId: Swift.String, amount: Swift.Double, currencyId: Swift.Int32, cardDataSource: ARISE.CardDataSource, paymentMethodId: Swift.String? = nil, accountNumber: Swift.String? = nil, expirationMonth: Swift.Int32? = nil, expirationYear: Swift.Int32? = nil, securityCode: Swift.String? = nil, track1: Swift.String? = nil, track2: Swift.String? = nil, emvTags: [Swift.String]? = nil, emvPaymentAppVersion: Swift.String? = nil, customerId: Swift.String? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, useCardPrice: Swift.Bool? = nil, billingAddress: ARISE.AddressDto? = nil, shippingAddress: ARISE.AddressDto? = nil, contactInfo: ARISE.ContactInfoDto? = nil, pin: Swift.String? = nil, pinKsn: Swift.String? = nil, emvFallbackCondition: ARISE.EMVFallbackCondition? = nil, emvFallbackLastChipRead: ARISE.EMVFallbackLastChipRead? = nil, referenceId: Swift.String? = nil, customerInitiatedTransaction: Swift.Bool? = nil, l2: ARISE.L2Data? = nil, l3: ARISE.L3Data? = nil) throws
+  public init(paymentProcessorId: Swift.String, amount: Swift.Double, currencyId: Swift.Int32, cardDataSource: ARISE.CardDataSource, paymentMethodId: Swift.String? = nil, accountNumber: Swift.String? = nil, expirationMonth: Swift.Int32? = nil, expirationYear: Swift.Int32? = nil, securityCode: Swift.String? = nil, track1: Swift.String? = nil, track2: Swift.String? = nil, emvTags: [Swift.String]? = nil, emvPaymentAppVersion: Swift.String? = nil, customerId: Swift.String? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, billingAddress: ARISE.AddressDto? = nil, shippingAddress: ARISE.AddressDto? = nil, contactInfo: ARISE.ContactInfoDto? = nil, pin: Swift.String? = nil, pinKsn: Swift.String? = nil, emvFallbackCondition: ARISE.EMVFallbackCondition? = nil, emvFallbackLastChipRead: ARISE.EMVFallbackLastChipRead? = nil, referenceId: Swift.String? = nil, customerInitiatedTransaction: Swift.Bool? = nil, l2: ARISE.L2Data? = nil, l3: ARISE.L3Data? = nil) throws
   #endif
 }
 public struct SourceResponseDto {
@@ -25072,9 +25071,8 @@ public struct CalculateAmountRequest {
   public let surchargeRate: Swift.Double?
   public let tipAmount: Swift.Double?
   public let tipRate: Swift.Double?
-  public let useCardPrice: Swift.Bool?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(amount: Swift.Double, currencyId: Swift.Int32 = 1, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil, useCardPrice: Swift.Bool? = nil)
+  public init(amount: Swift.Double, currencyId: Swift.Int32 = 1, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil)
   #endif
 }
 public struct CalculateAmountResponse {
