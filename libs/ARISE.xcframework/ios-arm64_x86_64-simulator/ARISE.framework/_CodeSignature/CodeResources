@@ -10,55 +10,55 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		GCzwKglvaB49FnNokwG/H2T9uZk=
+		KrKkkyA02JrVaOZmgcOdd8Sa6P8=
 		</data>
 		<key>Modules/ARISE.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		yRDoZf4SpU/yDw2E8SClvDJFVac=
+		ytggK/53oFaWI7igQhW/CfyS0uE=
 		</data>
 		<key>Modules/ARISE.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		RjdcufsRZGp6VGSbprfAWLuzbUw=
+		FDEv6ZzILSxSJeLVbffBhDulPb8=
 		</data>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		mmb6OuGCu+gckmAsR8ZH4sn3e7o=
+		vYcseb6DOYm6cqSn6uKIzp6kcgg=
 		</data>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		bmORo/a+k4412qeG4np8R/S11xI=
+		HJ2CHps4X6qU7P2L91+oFNx9/Uk=
 		</data>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		hN2iNUg66qIdkYmJQ/V8Np7Zk4U=
+		b/fdpGMwgjYvTV2le1ebPGYoc2k=
 		</data>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		5PAPdGVKM6/H7H0pNJOvGW7ljvw=
+		7sc/LFC4+JNZq4Kz9yDS2OaLXuA=
 		</data>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		JRu3aDNeq/8HGegv4M6z3yfS6LE=
+		mi7HTu/gMtTLUzGoR4hAwF4mf+Q=
 		</data>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		mmb6OuGCu+gckmAsR8ZH4sn3e7o=
+		vYcseb6DOYm6cqSn6uKIzp6kcgg=
 		</data>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		pWEhJ9kyzwJHddrETPQtmtuLoK0=
+		V2hhuzW8VbEw6tQDk7CR3jIKxEs=
 		</data>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		RGxG+uHIDHjsJsIsWvet1ETdWFE=
+		RpXs3MzJtpzF5XmFwkHfAIVTD5I=
 		</data>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		j9Ttfj/VCF9leePBMyYKL6+XgDU=
+		ijsjcQhhmlU5otbNkOUMckDeb6Q=
 		</data>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		TA9ilaUgmcHCSzY84dAGa3zPmCI=
+		MDPv3/57L1UpMCVbHQFoGtmRw+k=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -78,84 +78,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aybtZCXbdDyNLDQVXzdV3a3DytC8cKMHQs2nBLPU62A=
+			SOj8Vliy0tGz2SBIuRxUQc1gorEcvCm0znS+1tSSGkU=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HiWuQ9FLoOSraOZ/SJX2E1MQStbXSrTga/RFKPbNDvE=
+			EY9GXyCNt9/U61z9W3+0MJoxnKFw+dGcHsCQpAKiyLs=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AxSA44WoxBipgwRDBM1IB2ueFe/RnLnxpCZOwCMtNFA=
+			njaTe8lzB3bh9SvNRvBk1+D5aAkp9FqnBa38EhojkEI=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TlFiwW1Kqv2BtyysjSyl3LKt5FP7LP/ejCHjJia7/WU=
+			l/cRHJkTvcu7WCZjcYDV+1go6FEBvZC2O4OWz6c9xyM=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BLMm9888f3GTodaLZSofn/mhXu/J4C9IHuMC7BjJFK4=
+			xZT6ueiC5z6xK7jsNwnuGU3jUo+2XxbPU42AgcJlRQ4=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pSUq5fd6+EO7yKD3iyPu8L/F8S/wAW0Ncbjvs3qVjis=
+			url3XUN5tojwVBJr19QrO1rc7Qd3PcVw/JmHXhLr3iE=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IbWIUbERrl9mUGjWUXUUFuw89OIvpUlRVTka9Y2eWRM=
+			EWOylyn6C5XdhOYGuhfS3SfwuHF8L/itkWjjkvtO7jI=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AxSA44WoxBipgwRDBM1IB2ueFe/RnLnxpCZOwCMtNFA=
+			njaTe8lzB3bh9SvNRvBk1+D5aAkp9FqnBa38EhojkEI=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			b/laBjTitjvWyv9Uko/81aorn6lF/CfrAjftMwOsnzA=
+			7op+BSsd4lv8Xa8UlEpD0foovoGF8en2FJPTOdr68y0=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uqpMbBHDCoIB/B1oOUfniAUifJa561gfETlUIdKIoxM=
+			WorICFdhZTfJmmWm2LFZ/iIq8lmGz4G7INZ4o8E0x/o=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VKl6sOZcg5hyX3V4n5tiuKcenc6kZxWiubxSsYNWNU4=
+			toBND1w6qrZPNUULLdouFXdTn3psTt5ZX/QMimES3a0=
 			</data>
 		</dict>
 		<key>Modules/ARISE.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ijyleDMlyBItr/ll97AnGyFrAnhAQWmsFZkPEAQa/tI=
+			t99E6Ib4hFj7NjiH/YHCBezQ/tRpMaf+f41PJ7hboJ0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
