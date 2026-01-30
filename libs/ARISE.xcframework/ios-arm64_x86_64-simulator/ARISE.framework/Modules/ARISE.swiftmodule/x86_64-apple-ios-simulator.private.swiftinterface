@@ -99,8 +99,6 @@ public struct Client : ARISE.APIProtocol {
   public func postPayApiV1TransactionsAchIdRefund(_ input: ARISE.Operations.PostPayApiV1TransactionsAchIdRefund.Input) async throws -> ARISE.Operations.PostPayApiV1TransactionsAchIdRefund.Output
   public func postPayApiV1TransactionsAchIdHold(_ input: ARISE.Operations.PostPayApiV1TransactionsAchIdHold.Input) async throws -> ARISE.Operations.PostPayApiV1TransactionsAchIdHold.Output
   public func postPayApiV1TransactionsAchIdUnhold(_ input: ARISE.Operations.PostPayApiV1TransactionsAchIdUnhold.Input) async throws -> ARISE.Operations.PostPayApiV1TransactionsAchIdUnhold.Output
-  public func getApiAffiliatesAffiliateIdApiPermissions(_ input: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input) async throws -> ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output
-  public func putApiAffiliatesAffiliateIdApiPermissions(_ input: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input) async throws -> ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output
   public func getApiAvailableApiPermissions(_ input: ARISE.Operations.GetApiAvailableApiPermissions.Input) async throws -> ARISE.Operations.GetApiAvailableApiPermissions.Output
   public func getPayIntApiCategories(_ input: ARISE.Operations.GetPayIntApiCategories.Input) async throws -> ARISE.Operations.GetPayIntApiCategories.Output
   public func postPayIntApiCategories(_ input: ARISE.Operations.PostPayIntApiCategories.Input) async throws -> ARISE.Operations.PostPayIntApiCategories.Output
@@ -196,8 +194,6 @@ public protocol APIProtocol : Swift.Sendable {
   func postPayApiV1TransactionsAchIdRefund(_ input: ARISE.Operations.PostPayApiV1TransactionsAchIdRefund.Input) async throws -> ARISE.Operations.PostPayApiV1TransactionsAchIdRefund.Output
   func postPayApiV1TransactionsAchIdHold(_ input: ARISE.Operations.PostPayApiV1TransactionsAchIdHold.Input) async throws -> ARISE.Operations.PostPayApiV1TransactionsAchIdHold.Output
   func postPayApiV1TransactionsAchIdUnhold(_ input: ARISE.Operations.PostPayApiV1TransactionsAchIdUnhold.Input) async throws -> ARISE.Operations.PostPayApiV1TransactionsAchIdUnhold.Output
-  func getApiAffiliatesAffiliateIdApiPermissions(_ input: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input) async throws -> ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output
-  func putApiAffiliatesAffiliateIdApiPermissions(_ input: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input) async throws -> ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output
   func getApiAvailableApiPermissions(_ input: ARISE.Operations.GetApiAvailableApiPermissions.Input) async throws -> ARISE.Operations.GetApiAvailableApiPermissions.Output
   func getPayIntApiCategories(_ input: ARISE.Operations.GetPayIntApiCategories.Input) async throws -> ARISE.Operations.GetPayIntApiCategories.Output
   func postPayIntApiCategories(_ input: ARISE.Operations.PostPayIntApiCategories.Input) async throws -> ARISE.Operations.PostPayIntApiCategories.Output
@@ -297,10 +293,6 @@ extension ARISE.APIProtocol {
   public func postPayApiV1TransactionsAchIdRefund(path: ARISE.Operations.PostPayApiV1TransactionsAchIdRefund.Input.Path, headers: ARISE.Operations.PostPayApiV1TransactionsAchIdRefund.Input.Headers = .init()) async throws -> ARISE.Operations.PostPayApiV1TransactionsAchIdRefund.Output
   public func postPayApiV1TransactionsAchIdHold(path: ARISE.Operations.PostPayApiV1TransactionsAchIdHold.Input.Path, headers: ARISE.Operations.PostPayApiV1TransactionsAchIdHold.Input.Headers = .init()) async throws -> ARISE.Operations.PostPayApiV1TransactionsAchIdHold.Output
   public func postPayApiV1TransactionsAchIdUnhold(path: ARISE.Operations.PostPayApiV1TransactionsAchIdUnhold.Input.Path, headers: ARISE.Operations.PostPayApiV1TransactionsAchIdUnhold.Input.Headers = .init()) async throws -> ARISE.Operations.PostPayApiV1TransactionsAchIdUnhold.Output
-  public func getApiAffiliatesAffiliateIdApiPermissions(path: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input.Path, headers: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input.Headers = .init()) async throws -> ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output
-  #if compiler(>=5.3) && $NonescapableTypes
-  public func putApiAffiliatesAffiliateIdApiPermissions(path: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Path, headers: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Headers = .init(), body: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Body? = nil) async throws -> ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output
-  #endif
   public func getApiAvailableApiPermissions(headers: ARISE.Operations.GetApiAvailableApiPermissions.Input.Headers = .init()) async throws -> ARISE.Operations.GetApiAvailableApiPermissions.Output
   public func getPayIntApiCategories(query: ARISE.Operations.GetPayIntApiCategories.Input.Query = .init(), headers: ARISE.Operations.GetPayIntApiCategories.Input.Headers = .init()) async throws -> ARISE.Operations.GetPayIntApiCategories.Output
   #if compiler(>=5.3) && $NonescapableTypes
@@ -718,58 +710,6 @@ public enum Components {
         get
       }
     }
-    public struct AffiliateApiPermissionsDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
-      public var posSemiIntegrated: ARISE.Components.Schemas.PosSemiIntegratedPermissionsDto?
-      public var ecommerceCardNotPresent: ARISE.Components.Schemas.EcommerceCardNotPresentPermissionsDto?
-      public var ecommerceAch: ARISE.Components.Schemas.EcommerceAchPermissionsDto?
-      public var paymentManagement: ARISE.Components.Schemas.PaymentManagementPermissionsDto?
-      public var customerManagement: ARISE.Components.Schemas.CustomerManagementPermissionsDto?
-      public var ariseHostedSolutions: ARISE.Components.Schemas.AriseHostedSolutionsPermissionsDto?
-      public var features: ARISE.Components.Schemas.FeaturesPermissionsDto?
-      public var general: ARISE.Components.Schemas.GeneralPermissionsDto?
-      public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init(posSemiIntegrated: ARISE.Components.Schemas.PosSemiIntegratedPermissionsDto? = nil, ecommerceCardNotPresent: ARISE.Components.Schemas.EcommerceCardNotPresentPermissionsDto? = nil, ecommerceAch: ARISE.Components.Schemas.EcommerceAchPermissionsDto? = nil, paymentManagement: ARISE.Components.Schemas.PaymentManagementPermissionsDto? = nil, customerManagement: ARISE.Components.Schemas.CustomerManagementPermissionsDto? = nil, ariseHostedSolutions: ARISE.Components.Schemas.AriseHostedSolutionsPermissionsDto? = nil, features: ARISE.Components.Schemas.FeaturesPermissionsDto? = nil, general: ARISE.Components.Schemas.GeneralPermissionsDto? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
-      #endif
-      public enum CodingKeys : Swift.String, Swift.CodingKey {
-        case posSemiIntegrated
-        case ecommerceCardNotPresent
-        case ecommerceAch
-        case paymentManagement
-        case customerManagement
-        case ariseHostedSolutions
-        case features
-        case general
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(rawValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(stringValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(intValue: Swift.Int)
-        #endif
-        public typealias RawValue = Swift.String
-        #if compiler(>=5.3) && $NonescapableTypes
-        public var intValue: Swift.Int? {
-          get
-        }
-        #endif
-        public var rawValue: Swift.String {
-          get
-        }
-        public var stringValue: Swift.String {
-          get
-        }
-      }
-      public init(from decoder: any Swift.Decoder) throws
-      public func encode(to encoder: any Swift.Encoder) throws
-      public static func == (a: ARISE.Components.Schemas.AffiliateApiPermissionsDto, b: ARISE.Components.Schemas.AffiliateApiPermissionsDto) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
     public struct AmountDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
       public var baseAmount: Swift.Double?
       public var percentageOffAmount: Swift.Double?
@@ -933,52 +873,6 @@ public enum Components {
         get
       }
       public var rawValue: Swift.Int {
-        get
-      }
-    }
-    public struct AriseHostedSolutionsPermissionsDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
-      public var invoices: Swift.Bool?
-      public var quickPayment: Swift.Bool?
-      public var subscriptions: Swift.Bool?
-      public var webComponents: Swift.Bool?
-      public var wooCommerce: Swift.Bool?
-      public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init(invoices: Swift.Bool? = nil, quickPayment: Swift.Bool? = nil, subscriptions: Swift.Bool? = nil, webComponents: Swift.Bool? = nil, wooCommerce: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
-      #endif
-      public enum CodingKeys : Swift.String, Swift.CodingKey {
-        case invoices
-        case quickPayment
-        case subscriptions
-        case webComponents
-        case wooCommerce
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(rawValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(stringValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(intValue: Swift.Int)
-        #endif
-        public typealias RawValue = Swift.String
-        #if compiler(>=5.3) && $NonescapableTypes
-        public var intValue: Swift.Int? {
-          get
-        }
-        #endif
-        public var rawValue: Swift.String {
-          get
-        }
-        public var stringValue: Swift.String {
-          get
-        }
-      }
-      public init(from decoder: any Swift.Decoder) throws
-      public func encode(to encoder: any Swift.Encoder) throws
-      public static func == (a: ARISE.Components.Schemas.AriseHostedSolutionsPermissionsDto, b: ARISE.Components.Schemas.AriseHostedSolutionsPermissionsDto) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
         get
       }
     }
@@ -2349,9 +2243,10 @@ public enum Components {
       public var shippingAddress: ARISE.Components.Schemas.AddressIsvDto?
       public var contactInfo: ARISE.Components.Schemas.ContactInfoIsvDto?
       public var secCode: ARISE.Components.Schemas.AchSECCodeDto
+      public var requesterIpAddress: Swift.String
       public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
       #if compiler(>=5.3) && $NonescapableTypes
-      public init(paymentProcessorId: Swift.String, paymentMethodId: Swift.String? = nil, customerId: Swift.String? = nil, amount: Swift.Double, isFasterProcessing: Swift.Bool? = nil, routingNumber: Swift.String? = nil, accountNumber: Swift.String? = nil, taxId: Swift.String? = nil, accountHolderType: ARISE.Components.Schemas.AccountHolderTypeDto? = nil, accountType: ARISE.Components.Schemas.AccountTypeDto? = nil, billingAddress: ARISE.Components.Schemas.AddressIsvDto? = nil, shippingAddress: ARISE.Components.Schemas.AddressIsvDto? = nil, contactInfo: ARISE.Components.Schemas.ContactInfoIsvDto? = nil, secCode: ARISE.Components.Schemas.AchSECCodeDto, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
+      public init(paymentProcessorId: Swift.String, paymentMethodId: Swift.String? = nil, customerId: Swift.String? = nil, amount: Swift.Double, isFasterProcessing: Swift.Bool? = nil, routingNumber: Swift.String? = nil, accountNumber: Swift.String? = nil, taxId: Swift.String? = nil, accountHolderType: ARISE.Components.Schemas.AccountHolderTypeDto? = nil, accountType: ARISE.Components.Schemas.AccountTypeDto? = nil, billingAddress: ARISE.Components.Schemas.AddressIsvDto? = nil, shippingAddress: ARISE.Components.Schemas.AddressIsvDto? = nil, contactInfo: ARISE.Components.Schemas.ContactInfoIsvDto? = nil, secCode: ARISE.Components.Schemas.AchSECCodeDto, requesterIpAddress: Swift.String, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
       #endif
       public enum CodingKeys : Swift.String, Swift.CodingKey {
         case paymentProcessorId
@@ -2368,6 +2263,7 @@ public enum Components {
         case shippingAddress
         case contactInfo
         case secCode
+        case requesterIpAddress
         #if compiler(>=5.3) && $NonescapableTypes
         public init?(rawValue: Swift.String)
         #endif
@@ -2413,9 +2309,10 @@ public enum Components {
       public var shippingAddress: ARISE.Components.Schemas.AddressIsvDto?
       public var contactInfo: ARISE.Components.Schemas.ContactInfoIsvDto?
       public var secCode: ARISE.Components.Schemas.AchSECCodeDto
+      public var requesterIpAddress: Swift.String
       public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
       #if compiler(>=5.3) && $NonescapableTypes
-      public init(paymentProcessorId: Swift.String, paymentMethodId: Swift.String? = nil, customerId: Swift.String? = nil, amount: Swift.Double, isFasterProcessing: Swift.Bool? = nil, routingNumber: Swift.String? = nil, accountNumber: Swift.String? = nil, taxId: Swift.String? = nil, accountHolderType: ARISE.Components.Schemas.AccountHolderTypeDto? = nil, accountType: ARISE.Components.Schemas.AccountTypeDto? = nil, billingAddress: ARISE.Components.Schemas.AddressIsvDto? = nil, shippingAddress: ARISE.Components.Schemas.AddressIsvDto? = nil, contactInfo: ARISE.Components.Schemas.ContactInfoIsvDto? = nil, secCode: ARISE.Components.Schemas.AchSECCodeDto, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
+      public init(paymentProcessorId: Swift.String, paymentMethodId: Swift.String? = nil, customerId: Swift.String? = nil, amount: Swift.Double, isFasterProcessing: Swift.Bool? = nil, routingNumber: Swift.String? = nil, accountNumber: Swift.String? = nil, taxId: Swift.String? = nil, accountHolderType: ARISE.Components.Schemas.AccountHolderTypeDto? = nil, accountType: ARISE.Components.Schemas.AccountTypeDto? = nil, billingAddress: ARISE.Components.Schemas.AddressIsvDto? = nil, shippingAddress: ARISE.Components.Schemas.AddressIsvDto? = nil, contactInfo: ARISE.Components.Schemas.ContactInfoIsvDto? = nil, secCode: ARISE.Components.Schemas.AchSECCodeDto, requesterIpAddress: Swift.String, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
       #endif
       public enum CodingKeys : Swift.String, Swift.CodingKey {
         case paymentProcessorId
@@ -2432,6 +2329,7 @@ public enum Components {
         case shippingAddress
         case contactInfo
         case secCode
+        case requesterIpAddress
         #if compiler(>=5.3) && $NonescapableTypes
         public init?(rawValue: Swift.String)
         #endif
@@ -2503,7 +2401,7 @@ public enum Components {
     public struct CreateIsvPosTransactionRequestDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
       public var posDeviceId: Swift.String?
       public var referenceId: Swift.String?
-      public var transactionTypeId: ARISE.Components.Schemas.TransactionTypeIsvDto?
+      public var transactionTypeId: ARISE.Components.Schemas.TransactionTypeDto?
       public var targetTransactionId: Swift.String?
       public var amount: Swift.Double?
       public var useCardPrice: Swift.Bool?
@@ -2516,7 +2414,7 @@ public enum Components {
       public var requestPaymentMethodStorageConsent: Swift.Bool?
       public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
       #if compiler(>=5.3) && $NonescapableTypes
-      public init(posDeviceId: Swift.String? = nil, referenceId: Swift.String? = nil, transactionTypeId: ARISE.Components.Schemas.TransactionTypeIsvDto? = nil, targetTransactionId: Swift.String? = nil, amount: Swift.Double? = nil, useCardPrice: Swift.Bool? = nil, currencyId: Swift.Int32? = nil, paymentProcessorId: Swift.String? = nil, terminalId: Swift.String? = nil, customerId: Swift.String? = nil, waitForAcceptanceByTerminal: Swift.Bool? = nil, readingMethodId: ARISE.Components.Schemas.PosTransactionReadingMethodDto? = nil, requestPaymentMethodStorageConsent: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
+      public init(posDeviceId: Swift.String? = nil, referenceId: Swift.String? = nil, transactionTypeId: ARISE.Components.Schemas.TransactionTypeDto? = nil, targetTransactionId: Swift.String? = nil, amount: Swift.Double? = nil, useCardPrice: Swift.Bool? = nil, currencyId: Swift.Int32? = nil, paymentProcessorId: Swift.String? = nil, terminalId: Swift.String? = nil, customerId: Swift.String? = nil, waitForAcceptanceByTerminal: Swift.Bool? = nil, readingMethodId: ARISE.Components.Schemas.PosTransactionReadingMethodDto? = nil, requestPaymentMethodStorageConsent: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
       #endif
       public enum CodingKeys : Swift.String, Swift.CodingKey {
         case posDeviceId
@@ -3336,6 +3234,7 @@ public enum Components {
     }
     public struct CustomerItemIsvDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
       public var id: Swift.String?
+      public var externalId: Swift.String?
       public var createdOn: Foundation.Date?
       public var modifiedOn: Foundation.Date?
       public var lastTransactionDate: Foundation.Date?
@@ -3352,10 +3251,11 @@ public enum Components {
       public var paymentMethodsCount: Swift.Int32?
       public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
       #if compiler(>=5.3) && $NonescapableTypes
-      public init(id: Swift.String? = nil, createdOn: Foundation.Date? = nil, modifiedOn: Foundation.Date? = nil, lastTransactionDate: Foundation.Date? = nil, lastTransactionAmount: Swift.Double? = nil, activeSubscriptionsAmount: Swift.Double? = nil, contactName: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, companyName: Swift.String? = nil, email: Swift.String? = nil, mobilePhoneNumber: Swift.String? = nil, isMobileNumberSmsNotificationsEnabled: Swift.Bool? = nil, billingAddress: ARISE.Components.Schemas.AddressDto? = nil, paymentMethodsCount: Swift.Int32? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
+      public init(id: Swift.String? = nil, externalId: Swift.String? = nil, createdOn: Foundation.Date? = nil, modifiedOn: Foundation.Date? = nil, lastTransactionDate: Foundation.Date? = nil, lastTransactionAmount: Swift.Double? = nil, activeSubscriptionsAmount: Swift.Double? = nil, contactName: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, companyName: Swift.String? = nil, email: Swift.String? = nil, mobilePhoneNumber: Swift.String? = nil, isMobileNumberSmsNotificationsEnabled: Swift.Bool? = nil, billingAddress: ARISE.Components.Schemas.AddressDto? = nil, paymentMethodsCount: Swift.Int32? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
       #endif
       public enum CodingKeys : Swift.String, Swift.CodingKey {
         case id
+        case externalId
         case createdOn
         case modifiedOn
         case lastTransactionDate
@@ -3395,48 +3295,6 @@ public enum Components {
       public init(from decoder: any Swift.Decoder) throws
       public func encode(to encoder: any Swift.Encoder) throws
       public static func == (a: ARISE.Components.Schemas.CustomerItemIsvDto, b: ARISE.Components.Schemas.CustomerItemIsvDto) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
-    public struct CustomerManagementPermissionsDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
-      public var listCustomers: Swift.Bool?
-      public var getCustomerDetails: Swift.Bool?
-      public var manageCustomers: Swift.Bool?
-      public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init(listCustomers: Swift.Bool? = nil, getCustomerDetails: Swift.Bool? = nil, manageCustomers: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
-      #endif
-      public enum CodingKeys : Swift.String, Swift.CodingKey {
-        case listCustomers
-        case getCustomerDetails
-        case manageCustomers
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(rawValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(stringValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(intValue: Swift.Int)
-        #endif
-        public typealias RawValue = Swift.String
-        #if compiler(>=5.3) && $NonescapableTypes
-        public var intValue: Swift.Int? {
-          get
-        }
-        #endif
-        public var rawValue: Swift.String {
-          get
-        }
-        public var stringValue: Swift.String {
-          get
-        }
-      }
-      public init(from decoder: any Swift.Decoder) throws
-      public func encode(to encoder: any Swift.Encoder) throws
-      public static func == (a: ARISE.Components.Schemas.CustomerManagementPermissionsDto, b: ARISE.Components.Schemas.CustomerManagementPermissionsDto) -> Swift.Bool
       public func hash(into hasher: inout Swift.Hasher)
       public var hashValue: Swift.Int {
         get
@@ -3619,100 +3477,6 @@ public enum Components {
         get
       }
       public var rawValue: Swift.Int {
-        get
-      }
-    }
-    public struct EcommerceAchPermissionsDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
-      public var achDebit: Swift.Bool?
-      public var achCredit: Swift.Bool?
-      public var achVoid: Swift.Bool?
-      public var achHold: Swift.Bool?
-      public var achUnhold: Swift.Bool?
-      public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init(achDebit: Swift.Bool? = nil, achCredit: Swift.Bool? = nil, achVoid: Swift.Bool? = nil, achHold: Swift.Bool? = nil, achUnhold: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
-      #endif
-      public enum CodingKeys : Swift.String, Swift.CodingKey {
-        case achDebit
-        case achCredit
-        case achVoid
-        case achHold
-        case achUnhold
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(rawValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(stringValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(intValue: Swift.Int)
-        #endif
-        public typealias RawValue = Swift.String
-        #if compiler(>=5.3) && $NonescapableTypes
-        public var intValue: Swift.Int? {
-          get
-        }
-        #endif
-        public var rawValue: Swift.String {
-          get
-        }
-        public var stringValue: Swift.String {
-          get
-        }
-      }
-      public init(from decoder: any Swift.Decoder) throws
-      public func encode(to encoder: any Swift.Encoder) throws
-      public static func == (a: ARISE.Components.Schemas.EcommerceAchPermissionsDto, b: ARISE.Components.Schemas.EcommerceAchPermissionsDto) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
-    public struct EcommerceCardNotPresentPermissionsDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
-      public var auth: Swift.Bool?
-      public var sale: Swift.Bool?
-      public var capture: Swift.Bool?
-      public var void: Swift.Bool?
-      public var refund: Swift.Bool?
-      public var refundWithoutReference: Swift.Bool?
-      public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init(auth: Swift.Bool? = nil, sale: Swift.Bool? = nil, capture: Swift.Bool? = nil, void: Swift.Bool? = nil, refund: Swift.Bool? = nil, refundWithoutReference: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
-      #endif
-      public enum CodingKeys : Swift.String, Swift.CodingKey {
-        case auth
-        case sale
-        case capture
-        case void
-        case refund
-        case refundWithoutReference
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(rawValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(stringValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(intValue: Swift.Int)
-        #endif
-        public typealias RawValue = Swift.String
-        #if compiler(>=5.3) && $NonescapableTypes
-        public var intValue: Swift.Int? {
-          get
-        }
-        #endif
-        public var rawValue: Swift.String {
-          get
-        }
-        public var stringValue: Swift.String {
-          get
-        }
-      }
-      public init(from decoder: any Swift.Decoder) throws
-      public func encode(to encoder: any Swift.Encoder) throws
-      public static func == (a: ARISE.Components.Schemas.EcommerceCardNotPresentPermissionsDto, b: ARISE.Components.Schemas.EcommerceCardNotPresentPermissionsDto) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
         get
       }
     }
@@ -3990,86 +3754,6 @@ public enum Components {
         get
       }
     }
-    public struct FeaturesPermissionsDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
-      public var tapToPayOnMobile: Swift.Bool?
-      public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init(tapToPayOnMobile: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
-      #endif
-      public enum CodingKeys : Swift.String, Swift.CodingKey {
-        case tapToPayOnMobile
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(rawValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(stringValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(intValue: Swift.Int)
-        #endif
-        public typealias RawValue = Swift.String
-        #if compiler(>=5.3) && $NonescapableTypes
-        public var intValue: Swift.Int? {
-          get
-        }
-        #endif
-        public var rawValue: Swift.String {
-          get
-        }
-        public var stringValue: Swift.String {
-          get
-        }
-      }
-      public init(from decoder: any Swift.Decoder) throws
-      public func encode(to encoder: any Swift.Encoder) throws
-      public static func == (a: ARISE.Components.Schemas.FeaturesPermissionsDto, b: ARISE.Components.Schemas.FeaturesPermissionsDto) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
-    public struct GeneralPermissionsDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
-      public var ping: Swift.Bool?
-      public var status: Swift.Bool?
-      public var configurations: Swift.Bool?
-      public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init(ping: Swift.Bool? = nil, status: Swift.Bool? = nil, configurations: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
-      #endif
-      public enum CodingKeys : Swift.String, Swift.CodingKey {
-        case ping
-        case status
-        case configurations
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(rawValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(stringValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(intValue: Swift.Int)
-        #endif
-        public typealias RawValue = Swift.String
-        #if compiler(>=5.3) && $NonescapableTypes
-        public var intValue: Swift.Int? {
-          get
-        }
-        #endif
-        public var rawValue: Swift.String {
-          get
-        }
-        public var stringValue: Swift.String {
-          get
-        }
-      }
-      public init(from decoder: any Swift.Decoder) throws
-      public func encode(to encoder: any Swift.Encoder) throws
-      public static func == (a: ARISE.Components.Schemas.GeneralPermissionsDto, b: ARISE.Components.Schemas.GeneralPermissionsDto) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
     public struct GenerateIsvTapToPayJwtRequestDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
       public var deviceId: Swift.String?
       public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
@@ -4300,6 +3984,7 @@ public enum Components {
     }
     public struct GetCustomerResponseIsvDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
       public var id: Swift.String?
+      public var externalId: Swift.String?
       public var merchantId: Swift.String?
       public var firstName: Swift.String?
       public var lastName: Swift.String?
@@ -4323,10 +4008,11 @@ public enum Components {
       public var achAccounts: [ARISE.Components.Schemas.PaymentMethodAchAccountIsvDto]?
       public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
       #if compiler(>=5.3) && $NonescapableTypes
-      public init(id: Swift.String? = nil, merchantId: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, companyName: Swift.String? = nil, email: Swift.String? = nil, mobilePhoneNumber: Swift.String? = nil, isMobileNumberSmsNotificationsEnabled: Swift.Bool? = nil, useBillingAsShippingAddress: Swift.Bool? = nil, defaultPaymentMethodId: Swift.String? = nil, defaultAchPaymentMethodId: Swift.String? = nil, createdOn: Foundation.Date? = nil, modifiedOn: Foundation.Date? = nil, billingAddress: ARISE.Components.Schemas.AddressDto? = nil, shippingAddress: ARISE.Components.Schemas.AddressDto? = nil, lastTransactionDate: Foundation.Date? = nil, transactionsCount: Swift.Int32? = nil, transactionsVolume: Swift.Double? = nil, lastTransactionAmount: Swift.Double? = nil, numberOfSubscriptions: Swift.Int32? = nil, cards: [ARISE.Components.Schemas.PaymentMethodCardIsvDto]? = nil, achAccounts: [ARISE.Components.Schemas.PaymentMethodAchAccountIsvDto]? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
+      public init(id: Swift.String? = nil, externalId: Swift.String? = nil, merchantId: Swift.String? = nil, firstName: Swift.String? = nil, lastName: Swift.String? = nil, companyName: Swift.String? = nil, email: Swift.String? = nil, mobilePhoneNumber: Swift.String? = nil, isMobileNumberSmsNotificationsEnabled: Swift.Bool? = nil, useBillingAsShippingAddress: Swift.Bool? = nil, defaultPaymentMethodId: Swift.String? = nil, defaultAchPaymentMethodId: Swift.String? = nil, createdOn: Foundation.Date? = nil, modifiedOn: Foundation.Date? = nil, billingAddress: ARISE.Components.Schemas.AddressDto? = nil, shippingAddress: ARISE.Components.Schemas.AddressDto? = nil, lastTransactionDate: Foundation.Date? = nil, transactionsCount: Swift.Int32? = nil, transactionsVolume: Swift.Double? = nil, lastTransactionAmount: Swift.Double? = nil, numberOfSubscriptions: Swift.Int32? = nil, cards: [ARISE.Components.Schemas.PaymentMethodCardIsvDto]? = nil, achAccounts: [ARISE.Components.Schemas.PaymentMethodAchAccountIsvDto]? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
       #endif
       public enum CodingKeys : Swift.String, Swift.CodingKey {
         case id
+        case externalId
         case merchantId
         case firstName
         case lastName
@@ -4812,9 +4498,10 @@ public enum Components {
       public var currencyId: Swift.Int32?
       public var currencyIsoCode: Swift.String?
       public var maxTransactionAmount: Swift.Double?
+      public var ttpIosTerminalProfileId: Swift.String?
       public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
       #if compiler(>=5.3) && $NonescapableTypes
-      public init(zeroCostProcessingOptionId: Swift.Int32? = nil, zeroCostProcessingOption: Swift.String? = nil, defaultTipsOptions: [Swift.Double]? = nil, defaultSurchargeRate: Swift.Double? = nil, defaultCashDiscountRate: Swift.Double? = nil, defaultDualPricingRate: Swift.Double? = nil, availableCurrencies: [ARISE.Components.Schemas.EnumIsvDto]? = nil, availableCardTypes: [ARISE.Components.Schemas.EnumIsvDto]? = nil, availableTransactionTypes: [ARISE.Components.Schemas.EnumIsvDto]? = nil, isTipsEnabled: Swift.Bool? = nil, availablePaymentProcessors: [ARISE.Components.Schemas.PaymentProcessorIsvDto]? = nil, avs: ARISE.Components.Schemas.AvsOptionsDto? = nil, isCustomerCardSavingByTerminalEnabled: Swift.Bool? = nil, companyName: Swift.String? = nil, mccCode: Swift.String? = nil, mccCodeDescription: Swift.String? = nil, currencyId: Swift.Int32? = nil, currencyIsoCode: Swift.String? = nil, maxTransactionAmount: Swift.Double? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
+      public init(zeroCostProcessingOptionId: Swift.Int32? = nil, zeroCostProcessingOption: Swift.String? = nil, defaultTipsOptions: [Swift.Double]? = nil, defaultSurchargeRate: Swift.Double? = nil, defaultCashDiscountRate: Swift.Double? = nil, defaultDualPricingRate: Swift.Double? = nil, availableCurrencies: [ARISE.Components.Schemas.EnumIsvDto]? = nil, availableCardTypes: [ARISE.Components.Schemas.EnumIsvDto]? = nil, availableTransactionTypes: [ARISE.Components.Schemas.EnumIsvDto]? = nil, isTipsEnabled: Swift.Bool? = nil, availablePaymentProcessors: [ARISE.Components.Schemas.PaymentProcessorIsvDto]? = nil, avs: ARISE.Components.Schemas.AvsOptionsDto? = nil, isCustomerCardSavingByTerminalEnabled: Swift.Bool? = nil, companyName: Swift.String? = nil, mccCode: Swift.String? = nil, mccCodeDescription: Swift.String? = nil, currencyId: Swift.Int32? = nil, currencyIsoCode: Swift.String? = nil, maxTransactionAmount: Swift.Double? = nil, ttpIosTerminalProfileId: Swift.String? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
       #endif
       public enum CodingKeys : Swift.String, Swift.CodingKey {
         case zeroCostProcessingOptionId
@@ -4836,6 +4523,7 @@ public enum Components {
         case currencyId
         case currencyIsoCode
         case maxTransactionAmount
+        case ttpIosTerminalProfileId
         #if compiler(>=5.3) && $NonescapableTypes
         public init?(rawValue: Swift.String)
         #endif
@@ -4882,14 +4570,14 @@ public enum Components {
       public var amount: Swift.Double?
       public var currencyId: Swift.Int32?
       public var targetTransactionId: Swift.String?
-      public var transactionTypeId: ARISE.Components.Schemas.TransactionTypeIsvDto?
+      public var transactionTypeId: ARISE.Components.Schemas.TransactionTypeDto?
       public var transactionType: Swift.String?
       public var isCompleted: Swift.Bool?
       public var transaction: ARISE.Components.Schemas.TransactionDto?
       public var transactionReceipt: ARISE.Components.Schemas.PaymentGateway_Contracts_Transactions_TransactionReceiptDto?
       public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
       #if compiler(>=5.3) && $NonescapableTypes
-      public init(id: Swift.String? = nil, createdOn: Foundation.Date? = nil, modifiedOn: Foundation.Date? = nil, merchantId: Swift.String? = nil, customerId: Swift.String? = nil, terminalId: Swift.String? = nil, paymentProcessorId: Swift.String? = nil, posDeviceId: Swift.String? = nil, referenceId: Swift.String? = nil, posTransactionStatusId: ARISE.Components.Schemas.PosTransactionStatusDto? = nil, posTransactionStatus: Swift.String? = nil, transactionId: Swift.String? = nil, amount: Swift.Double? = nil, currencyId: Swift.Int32? = nil, targetTransactionId: Swift.String? = nil, transactionTypeId: ARISE.Components.Schemas.TransactionTypeIsvDto? = nil, transactionType: Swift.String? = nil, isCompleted: Swift.Bool? = nil, transaction: ARISE.Components.Schemas.TransactionDto? = nil, transactionReceipt: ARISE.Components.Schemas.PaymentGateway_Contracts_Transactions_TransactionReceiptDto? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
+      public init(id: Swift.String? = nil, createdOn: Foundation.Date? = nil, modifiedOn: Foundation.Date? = nil, merchantId: Swift.String? = nil, customerId: Swift.String? = nil, terminalId: Swift.String? = nil, paymentProcessorId: Swift.String? = nil, posDeviceId: Swift.String? = nil, referenceId: Swift.String? = nil, posTransactionStatusId: ARISE.Components.Schemas.PosTransactionStatusDto? = nil, posTransactionStatus: Swift.String? = nil, transactionId: Swift.String? = nil, amount: Swift.Double? = nil, currencyId: Swift.Int32? = nil, targetTransactionId: Swift.String? = nil, transactionTypeId: ARISE.Components.Schemas.TransactionTypeDto? = nil, transactionType: Swift.String? = nil, isCompleted: Swift.Bool? = nil, transaction: ARISE.Components.Schemas.TransactionDto? = nil, transactionReceipt: ARISE.Components.Schemas.PaymentGateway_Contracts_Transactions_TransactionReceiptDto? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
       #endif
       public enum CodingKeys : Swift.String, Swift.CodingKey {
         case id
@@ -6724,12 +6412,12 @@ public enum Components {
       public var amount: Swift.Double?
       public var currencyId: Swift.Int32?
       public var targetTransactionId: Swift.String?
-      public var transactionTypeId: ARISE.Components.Schemas.TransactionTypeIsvDto?
+      public var transactionTypeId: ARISE.Components.Schemas.TransactionTypeDto?
       public var transactionType: Swift.String?
       public var isCompleted: Swift.Bool?
       public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
       #if compiler(>=5.3) && $NonescapableTypes
-      public init(id: Swift.String? = nil, createdOn: Foundation.Date? = nil, terminalId: Swift.String? = nil, posTransactionStatusId: ARISE.Components.Schemas.PosTransactionStatusDto? = nil, posTransactionStatus: Swift.String? = nil, transactionId: Swift.String? = nil, amount: Swift.Double? = nil, currencyId: Swift.Int32? = nil, targetTransactionId: Swift.String? = nil, transactionTypeId: ARISE.Components.Schemas.TransactionTypeIsvDto? = nil, transactionType: Swift.String? = nil, isCompleted: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
+      public init(id: Swift.String? = nil, createdOn: Foundation.Date? = nil, terminalId: Swift.String? = nil, posTransactionStatusId: ARISE.Components.Schemas.PosTransactionStatusDto? = nil, posTransactionStatus: Swift.String? = nil, transactionId: Swift.String? = nil, amount: Swift.Double? = nil, currencyId: Swift.Int32? = nil, targetTransactionId: Swift.String? = nil, transactionTypeId: ARISE.Components.Schemas.TransactionTypeDto? = nil, transactionType: Swift.String? = nil, isCompleted: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
       #endif
       public enum CodingKeys : Swift.String, Swift.CodingKey {
         case id
@@ -7520,56 +7208,6 @@ public enum Components {
         get
       }
     }
-    public struct PaymentManagementPermissionsDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
-      public var listTransactions: Swift.Bool?
-      public var getTransactionDetails: Swift.Bool?
-      public var calculateTransactionAmount: Swift.Bool?
-      public var submitTipAdjustment: Swift.Bool?
-      public var getSettlementBatches: Swift.Bool?
-      public var submitBatchForSettlement: Swift.Bool?
-      public var sendReceiptBySms: Swift.Bool?
-      public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init(listTransactions: Swift.Bool? = nil, getTransactionDetails: Swift.Bool? = nil, calculateTransactionAmount: Swift.Bool? = nil, submitTipAdjustment: Swift.Bool? = nil, getSettlementBatches: Swift.Bool? = nil, submitBatchForSettlement: Swift.Bool? = nil, sendReceiptBySms: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
-      #endif
-      public enum CodingKeys : Swift.String, Swift.CodingKey {
-        case listTransactions
-        case getTransactionDetails
-        case calculateTransactionAmount
-        case submitTipAdjustment
-        case getSettlementBatches
-        case submitBatchForSettlement
-        case sendReceiptBySms
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(rawValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(stringValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(intValue: Swift.Int)
-        #endif
-        public typealias RawValue = Swift.String
-        #if compiler(>=5.3) && $NonescapableTypes
-        public var intValue: Swift.Int? {
-          get
-        }
-        #endif
-        public var rawValue: Swift.String {
-          get
-        }
-        public var stringValue: Swift.String {
-          get
-        }
-      }
-      public init(from decoder: any Swift.Decoder) throws
-      public func encode(to encoder: any Swift.Encoder) throws
-      public static func == (a: ARISE.Components.Schemas.PaymentManagementPermissionsDto, b: ARISE.Components.Schemas.PaymentManagementPermissionsDto) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
     public struct PaymentMethodAchAccountDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
       public var name: Swift.String?
       public var accountNumber: Swift.String?
@@ -7880,56 +7518,6 @@ public enum Components {
       public init(from decoder: any Swift.Decoder) throws
       public func encode(to encoder: any Swift.Encoder) throws
       public static func == (a: ARISE.Components.Schemas.PingResponse, b: ARISE.Components.Schemas.PingResponse) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
-    public struct PosSemiIntegratedPermissionsDto : Swift.Codable, Swift.Hashable, Swift.Sendable {
-      public var startPosTransaction: Swift.Bool?
-      public var getPosTransactions: Swift.Bool?
-      public var getPosTransactionDetails: Swift.Bool?
-      public var cancelPosTransaction: Swift.Bool?
-      public var printPosTransactionReceipt: Swift.Bool?
-      public var getTerminalList: Swift.Bool?
-      public var getTerminalInformation: Swift.Bool?
-      public var additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init(startPosTransaction: Swift.Bool? = nil, getPosTransactions: Swift.Bool? = nil, getPosTransactionDetails: Swift.Bool? = nil, cancelPosTransaction: Swift.Bool? = nil, printPosTransactionReceipt: Swift.Bool? = nil, getTerminalList: Swift.Bool? = nil, getTerminalInformation: Swift.Bool? = nil, additionalProperties: OpenAPIRuntime.OpenAPIObjectContainer = .init())
-      #endif
-      public enum CodingKeys : Swift.String, Swift.CodingKey {
-        case startPosTransaction
-        case getPosTransactions
-        case getPosTransactionDetails
-        case cancelPosTransaction
-        case printPosTransactionReceipt
-        case getTerminalList
-        case getTerminalInformation
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(rawValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(stringValue: Swift.String)
-        #endif
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init?(intValue: Swift.Int)
-        #endif
-        public typealias RawValue = Swift.String
-        #if compiler(>=5.3) && $NonescapableTypes
-        public var intValue: Swift.Int? {
-          get
-        }
-        #endif
-        public var rawValue: Swift.String {
-          get
-        }
-        public var stringValue: Swift.String {
-          get
-        }
-      }
-      public init(from decoder: any Swift.Decoder) throws
-      public func encode(to encoder: any Swift.Encoder) throws
-      public static func == (a: ARISE.Components.Schemas.PosSemiIntegratedPermissionsDto, b: ARISE.Components.Schemas.PosSemiIntegratedPermissionsDto) -> Swift.Bool
       public func hash(into hasher: inout Swift.Hasher)
       public var hashValue: Swift.Int {
         get
@@ -10157,6 +9745,7 @@ public enum Components {
       case _6
       case _7
       case _8
+      case _10
       case _11
       case _12
       case _13
@@ -10169,28 +9758,6 @@ public enum Components {
       public typealias AllCases = [ARISE.Components.Schemas.TransactionTypeDto]
       public typealias RawValue = Swift.Int
       nonisolated public static var allCases: [ARISE.Components.Schemas.TransactionTypeDto] {
-        get
-      }
-      public var rawValue: Swift.Int {
-        get
-      }
-    }
-    @frozen public enum TransactionTypeIsvDto : Swift.Int, Swift.Codable, Swift.Hashable, Swift.Sendable, Swift.CaseIterable {
-      case _1
-      case _2
-      case _3
-      case _4
-      case _5
-      case _6
-      case _7
-      case _8
-      case _10
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init?(rawValue: Swift.Int)
-      #endif
-      public typealias AllCases = [ARISE.Components.Schemas.TransactionTypeIsvDto]
-      public typealias RawValue = Swift.Int
-      nonisolated public static var allCases: [ARISE.Components.Schemas.TransactionTypeIsvDto] {
         get
       }
       public var rawValue: Swift.Int {
@@ -12046,376 +11613,6 @@ public enum Operations {
         get
       }
       public typealias AllCases = [ARISE.Operations.PostPayApiV1TransactionsAchIdUnhold.AcceptableContentType]
-      public typealias RawValue = Swift.String
-    }
-  }
-  public enum GetApiAffiliatesAffiliateIdApiPermissions {
-    public static let id: Swift.String
-    public struct Input : Swift.Sendable, Swift.Hashable {
-      public struct Path : Swift.Sendable, Swift.Hashable {
-        public var affiliateId: Swift.String
-        public init(affiliateId: Swift.String)
-        public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input.Path, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input.Path) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      public var path: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input.Path
-      public struct Headers : Swift.Sendable, Swift.Hashable {
-        public var xApiVersion: Swift.String?
-        public var accept: [OpenAPIRuntime.AcceptHeaderContentType<ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.AcceptableContentType>]
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init(xApiVersion: Swift.String? = nil, accept: [OpenAPIRuntime.AcceptHeaderContentType<ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.AcceptableContentType>] = .defaultValues())
-        #endif
-        public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input.Headers, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input.Headers) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      public var headers: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input.Headers
-      public init(path: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input.Path, headers: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input.Headers = .init())
-      public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Input) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
-    @frozen public enum Output : Swift.Sendable, Swift.Hashable {
-      public struct Ok : Swift.Sendable, Swift.Hashable {
-        @frozen public enum Body : Swift.Sendable, Swift.Hashable {
-          case textPlainXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textPlainXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          case applicationJsonXApiVersion_1_0(ARISE.Components.Schemas.AffiliateApiPermissionsDto)
-          public var applicationJsonXApiVersion_1_0: ARISE.Components.Schemas.AffiliateApiPermissionsDto {
-            get throws
-          }
-          case textJsonXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textJsonXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.Ok.Body, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.Ok.Body) -> Swift.Bool
-          public func hash(into hasher: inout Swift.Hasher)
-          public var hashValue: Swift.Int {
-            get
-          }
-        }
-        public var body: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.Ok.Body
-        public init(body: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.Ok.Body)
-        public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.Ok, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.Ok) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      case ok(ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.Ok)
-      public var ok: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.Ok {
-        get throws
-      }
-      public struct BadRequest : Swift.Sendable, Swift.Hashable {
-        @frozen public enum Body : Swift.Sendable, Swift.Hashable {
-          case textPlainXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textPlainXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          case applicationJsonXApiVersion_1_0(ARISE.Components.Schemas.AspNet_Swagger_Examples_ValidationExceptionExample)
-          public var applicationJsonXApiVersion_1_0: ARISE.Components.Schemas.AspNet_Swagger_Examples_ValidationExceptionExample {
-            get throws
-          }
-          case textJsonXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textJsonXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest.Body, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest.Body) -> Swift.Bool
-          public func hash(into hasher: inout Swift.Hasher)
-          public var hashValue: Swift.Int {
-            get
-          }
-        }
-        public var body: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest.Body
-        public init(body: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest.Body)
-        public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      case badRequest(ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest)
-      public var badRequest: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest {
-        get throws
-      }
-      public struct NotFound : Swift.Sendable, Swift.Hashable {
-        @frozen public enum Body : Swift.Sendable, Swift.Hashable {
-          case textPlainXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textPlainXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          case applicationJsonXApiVersion_1_0(ARISE.Components.Schemas.AspNet_Swagger_Examples_NotFoundExceptionExample)
-          public var applicationJsonXApiVersion_1_0: ARISE.Components.Schemas.AspNet_Swagger_Examples_NotFoundExceptionExample {
-            get throws
-          }
-          case textJsonXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textJsonXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.NotFound.Body, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.NotFound.Body) -> Swift.Bool
-          public func hash(into hasher: inout Swift.Hasher)
-          public var hashValue: Swift.Int {
-            get
-          }
-        }
-        public var body: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.NotFound.Body
-        public init(body: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.NotFound.Body)
-        public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.NotFound, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.NotFound) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      case notFound(ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.NotFound)
-      public var notFound: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.NotFound {
-        get throws
-      }
-      public struct InternalServerError : Swift.Sendable, Swift.Hashable {
-        @frozen public enum Body : Swift.Sendable, Swift.Hashable {
-          case textPlainXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textPlainXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          case applicationJsonXApiVersion_1_0(ARISE.Components.Schemas.AspNet_Swagger_Examples_InternalExceptionExample)
-          public var applicationJsonXApiVersion_1_0: ARISE.Components.Schemas.AspNet_Swagger_Examples_InternalExceptionExample {
-            get throws
-          }
-          case textJsonXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textJsonXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError.Body, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError.Body) -> Swift.Bool
-          public func hash(into hasher: inout Swift.Hasher)
-          public var hashValue: Swift.Int {
-            get
-          }
-        }
-        public var body: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError.Body
-        public init(body: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError.Body)
-        public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      case internalServerError(ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError)
-      public var internalServerError: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError {
-        get throws
-      }
-      case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-      public static func == (a: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output, b: ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.Output) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
-    @frozen public enum AcceptableContentType : OpenAPIRuntime.AcceptableProtocol {
-      case textPlainXApiVersion_1_0
-      case applicationJsonXApiVersion_1_0
-      case textJsonXApiVersion_1_0
-      case other(Swift.String)
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init?(rawValue: Swift.String)
-      #endif
-      public var rawValue: Swift.String {
-        get
-      }
-      public static var allCases: [ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.AcceptableContentType] {
-        get
-      }
-      public typealias AllCases = [ARISE.Operations.GetApiAffiliatesAffiliateIdApiPermissions.AcceptableContentType]
-      public typealias RawValue = Swift.String
-    }
-  }
-  public enum PutApiAffiliatesAffiliateIdApiPermissions {
-    public static let id: Swift.String
-    public struct Input : Swift.Sendable, Swift.Hashable {
-      public struct Path : Swift.Sendable, Swift.Hashable {
-        public var affiliateId: Swift.String
-        public init(affiliateId: Swift.String)
-        public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Path, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Path) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      public var path: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Path
-      public struct Headers : Swift.Sendable, Swift.Hashable {
-        public var xApiVersion: Swift.String?
-        public var accept: [OpenAPIRuntime.AcceptHeaderContentType<ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.AcceptableContentType>]
-        #if compiler(>=5.3) && $NonescapableTypes
-        public init(xApiVersion: Swift.String? = nil, accept: [OpenAPIRuntime.AcceptHeaderContentType<ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.AcceptableContentType>] = .defaultValues())
-        #endif
-        public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Headers, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Headers) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      public var headers: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Headers
-      @frozen public enum Body : Swift.Sendable, Swift.Hashable {
-        case applicationJsonXApiVersion_1_0(ARISE.Components.Schemas.AffiliateApiPermissionsDto)
-        case textJsonXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-        case application_Ast_JsonXApiVersion_1_0(ARISE.Components.Schemas.AffiliateApiPermissionsDto)
-        public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Body, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Body) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      public var body: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Body?
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init(path: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Path, headers: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Headers = .init(), body: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input.Body? = nil)
-      #endif
-      public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Input) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
-    @frozen public enum Output : Swift.Sendable, Swift.Hashable {
-      public struct Ok : Swift.Sendable, Swift.Hashable {
-        public init()
-        public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.Ok, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.Ok) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      case ok(ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.Ok)
-      public static var ok: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output {
-        get
-      }
-      public var ok: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.Ok {
-        get throws
-      }
-      public struct BadRequest : Swift.Sendable, Swift.Hashable {
-        @frozen public enum Body : Swift.Sendable, Swift.Hashable {
-          case textPlainXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textPlainXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          case applicationJsonXApiVersion_1_0(ARISE.Components.Schemas.AspNet_Swagger_Examples_ValidationExceptionExample)
-          public var applicationJsonXApiVersion_1_0: ARISE.Components.Schemas.AspNet_Swagger_Examples_ValidationExceptionExample {
-            get throws
-          }
-          case textJsonXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textJsonXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest.Body, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest.Body) -> Swift.Bool
-          public func hash(into hasher: inout Swift.Hasher)
-          public var hashValue: Swift.Int {
-            get
-          }
-        }
-        public var body: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest.Body
-        public init(body: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest.Body)
-        public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      case badRequest(ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest)
-      public var badRequest: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.BadRequest {
-        get throws
-      }
-      public struct NotFound : Swift.Sendable, Swift.Hashable {
-        @frozen public enum Body : Swift.Sendable, Swift.Hashable {
-          case textPlainXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textPlainXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          case applicationJsonXApiVersion_1_0(ARISE.Components.Schemas.AspNet_Swagger_Examples_NotFoundExceptionExample)
-          public var applicationJsonXApiVersion_1_0: ARISE.Components.Schemas.AspNet_Swagger_Examples_NotFoundExceptionExample {
-            get throws
-          }
-          case textJsonXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textJsonXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.NotFound.Body, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.NotFound.Body) -> Swift.Bool
-          public func hash(into hasher: inout Swift.Hasher)
-          public var hashValue: Swift.Int {
-            get
-          }
-        }
-        public var body: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.NotFound.Body
-        public init(body: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.NotFound.Body)
-        public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.NotFound, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.NotFound) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      case notFound(ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.NotFound)
-      public var notFound: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.NotFound {
-        get throws
-      }
-      public struct InternalServerError : Swift.Sendable, Swift.Hashable {
-        @frozen public enum Body : Swift.Sendable, Swift.Hashable {
-          case textPlainXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textPlainXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          case applicationJsonXApiVersion_1_0(ARISE.Components.Schemas.AspNet_Swagger_Examples_InternalExceptionExample)
-          public var applicationJsonXApiVersion_1_0: ARISE.Components.Schemas.AspNet_Swagger_Examples_InternalExceptionExample {
-            get throws
-          }
-          case textJsonXApiVersion_1_0(OpenAPIRuntime.HTTPBody)
-          public var textJsonXApiVersion_1_0: OpenAPIRuntime.HTTPBody {
-            get throws
-          }
-          public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError.Body, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError.Body) -> Swift.Bool
-          public func hash(into hasher: inout Swift.Hasher)
-          public var hashValue: Swift.Int {
-            get
-          }
-        }
-        public var body: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError.Body
-        public init(body: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError.Body)
-        public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError) -> Swift.Bool
-        public func hash(into hasher: inout Swift.Hasher)
-        public var hashValue: Swift.Int {
-          get
-        }
-      }
-      case internalServerError(ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError)
-      public var internalServerError: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output.InternalServerError {
-        get throws
-      }
-      case undocumented(statusCode: Swift.Int, OpenAPIRuntime.UndocumentedPayload)
-      public static func == (a: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output, b: ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.Output) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
-    @frozen public enum AcceptableContentType : OpenAPIRuntime.AcceptableProtocol {
-      case textPlainXApiVersion_1_0
-      case applicationJsonXApiVersion_1_0
-      case textJsonXApiVersion_1_0
-      case other(Swift.String)
-      #if compiler(>=5.3) && $NonescapableTypes
-      public init?(rawValue: Swift.String)
-      #endif
-      public var rawValue: Swift.String {
-        get
-      }
-      public static var allCases: [ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.AcceptableContentType] {
-        get
-      }
-      public typealias AllCases = [ARISE.Operations.PutApiAffiliatesAffiliateIdApiPermissions.AcceptableContentType]
       public typealias RawValue = Swift.String
     }
   }
@@ -24902,8 +24099,9 @@ public struct PaymentSettingsResponse {
   public let currencyCode: Swift.String?
   public let currencyId: Swift.Int32?
   public let countryCode: Swift.String?
+  public let ttpIosTerminalProfileId: Swift.String?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(availableCurrencies: [ARISE.NamedOption], zeroCostProcessingOptionId: Swift.Int32?, zeroCostProcessingOption: Swift.String?, defaultSurchargeRate: Swift.Double?, defaultCashDiscountRate: Swift.Double?, defaultDualPricingRate: Swift.Double?, isTipsEnabled: Swift.Bool, defaultTipsOptions: [Swift.Double]?, availableCardTypes: [ARISE.NamedOption], availableTransactionTypes: [ARISE.NamedOption], availablePaymentProcessors: [ARISE.PaymentProcessor], avs: ARISE.AvsOptions?, companyName: Swift.String? = nil, mccCode: Swift.String? = nil, currencyCode: Swift.String? = nil, currencyId: Swift.Int32? = nil, countryCode: Swift.String? = nil)
+  public init(availableCurrencies: [ARISE.NamedOption], zeroCostProcessingOptionId: Swift.Int32?, zeroCostProcessingOption: Swift.String?, defaultSurchargeRate: Swift.Double?, defaultCashDiscountRate: Swift.Double?, defaultDualPricingRate: Swift.Double?, isTipsEnabled: Swift.Bool, defaultTipsOptions: [Swift.Double]?, availableCardTypes: [ARISE.NamedOption], availableTransactionTypes: [ARISE.NamedOption], availablePaymentProcessors: [ARISE.PaymentProcessor], avs: ARISE.AvsOptions?, companyName: Swift.String? = nil, mccCode: Swift.String? = nil, currencyCode: Swift.String? = nil, currencyId: Swift.Int32? = nil, countryCode: Swift.String? = nil, ttpIosTerminalProfileId: Swift.String? = nil)
   #endif
 }
 public struct ApiPermissionsResponse : Swift.Codable, Swift.Hashable, Swift.Sendable {
@@ -25657,9 +24855,6 @@ extension ARISE.Components.Schemas.AddressDto.CodingKeys : Swift.RawRepresentabl
 extension ARISE.Components.Schemas.AddressIsvDto.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.AddressIsvDto.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.AddressIsvDto.CodingKeys : Swift.RawRepresentable {}
-extension ARISE.Components.Schemas.AffiliateApiPermissionsDto.CodingKeys : Swift.Equatable {}
-extension ARISE.Components.Schemas.AffiliateApiPermissionsDto.CodingKeys : Swift.Hashable {}
-extension ARISE.Components.Schemas.AffiliateApiPermissionsDto.CodingKeys : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.AmountDto.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.AmountDto.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.AmountDto.CodingKeys : Swift.RawRepresentable {}
@@ -25668,9 +24863,6 @@ extension ARISE.Components.Schemas.AmountIsvDto.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.AmountIsvDto.CodingKeys : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.ApiPermission : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.ApiPermission : Swift.BitwiseCopyable {}
-extension ARISE.Components.Schemas.AriseHostedSolutionsPermissionsDto.CodingKeys : Swift.Equatable {}
-extension ARISE.Components.Schemas.AriseHostedSolutionsPermissionsDto.CodingKeys : Swift.Hashable {}
-extension ARISE.Components.Schemas.AriseHostedSolutionsPermissionsDto.CodingKeys : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.AspNet_Swagger_Examples_ForbiddenExceptionExample.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.AspNet_Swagger_Examples_ForbiddenExceptionExample.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.AspNet_Swagger_Examples_ForbiddenExceptionExample.CodingKeys : Swift.RawRepresentable {}
@@ -25827,9 +25019,6 @@ extension ARISE.Components.Schemas.CustomerDto.CodingKeys : Swift.RawRepresentab
 extension ARISE.Components.Schemas.CustomerItemIsvDto.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.CustomerItemIsvDto.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.CustomerItemIsvDto.CodingKeys : Swift.RawRepresentable {}
-extension ARISE.Components.Schemas.CustomerManagementPermissionsDto.CodingKeys : Swift.Equatable {}
-extension ARISE.Components.Schemas.CustomerManagementPermissionsDto.CodingKeys : Swift.Hashable {}
-extension ARISE.Components.Schemas.CustomerManagementPermissionsDto.CodingKeys : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.DeviceResponseDto.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.DeviceResponseDto.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.DeviceResponseDto.CodingKeys : Swift.RawRepresentable {}
@@ -25843,12 +25032,6 @@ extension ARISE.Components.Schemas.EMVFallbackConditionDto : Swift.RawRepresenta
 extension ARISE.Components.Schemas.EMVFallbackConditionDto : Swift.BitwiseCopyable {}
 extension ARISE.Components.Schemas.EMVFallbackLastChipReadDto : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.EMVFallbackLastChipReadDto : Swift.BitwiseCopyable {}
-extension ARISE.Components.Schemas.EcommerceAchPermissionsDto.CodingKeys : Swift.Equatable {}
-extension ARISE.Components.Schemas.EcommerceAchPermissionsDto.CodingKeys : Swift.Hashable {}
-extension ARISE.Components.Schemas.EcommerceAchPermissionsDto.CodingKeys : Swift.RawRepresentable {}
-extension ARISE.Components.Schemas.EcommerceCardNotPresentPermissionsDto.CodingKeys : Swift.Equatable {}
-extension ARISE.Components.Schemas.EcommerceCardNotPresentPermissionsDto.CodingKeys : Swift.Hashable {}
-extension ARISE.Components.Schemas.EcommerceCardNotPresentPermissionsDto.CodingKeys : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.ElectronicCheckDetails.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.ElectronicCheckDetails.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.ElectronicCheckDetails.CodingKeys : Swift.RawRepresentable {}
@@ -25867,12 +25050,6 @@ extension ARISE.Components.Schemas.EnabledApiPermissionsResponseDto.CodingKeys :
 extension ARISE.Components.Schemas.EnumIsvDto.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.EnumIsvDto.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.EnumIsvDto.CodingKeys : Swift.RawRepresentable {}
-extension ARISE.Components.Schemas.FeaturesPermissionsDto.CodingKeys : Swift.Equatable {}
-extension ARISE.Components.Schemas.FeaturesPermissionsDto.CodingKeys : Swift.Hashable {}
-extension ARISE.Components.Schemas.FeaturesPermissionsDto.CodingKeys : Swift.RawRepresentable {}
-extension ARISE.Components.Schemas.GeneralPermissionsDto.CodingKeys : Swift.Equatable {}
-extension ARISE.Components.Schemas.GeneralPermissionsDto.CodingKeys : Swift.Hashable {}
-extension ARISE.Components.Schemas.GeneralPermissionsDto.CodingKeys : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.GenerateIsvTapToPayJwtRequestDto.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.GenerateIsvTapToPayJwtRequestDto.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.GenerateIsvTapToPayJwtRequestDto.CodingKeys : Swift.RawRepresentable {}
@@ -26062,9 +25239,6 @@ extension ARISE.Components.Schemas.PaymentGateway_Contracts_Transactions_Transac
 extension ARISE.Components.Schemas.PaymentGateway_Contracts_Transactions_TransactionReceiptDto_EmvTagsDto.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.PaymentGateway_Contracts_Transactions_TransactionReceiptDto_EmvTagsDto.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.PaymentGateway_Contracts_Transactions_TransactionReceiptDto_EmvTagsDto.CodingKeys : Swift.RawRepresentable {}
-extension ARISE.Components.Schemas.PaymentManagementPermissionsDto.CodingKeys : Swift.Equatable {}
-extension ARISE.Components.Schemas.PaymentManagementPermissionsDto.CodingKeys : Swift.Hashable {}
-extension ARISE.Components.Schemas.PaymentManagementPermissionsDto.CodingKeys : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.PaymentMethodAchAccountDto.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.PaymentMethodAchAccountDto.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.PaymentMethodAchAccountDto.CodingKeys : Swift.RawRepresentable {}
@@ -26085,9 +25259,6 @@ extension ARISE.Components.Schemas.PaymentSessionStatusDto : Swift.BitwiseCopyab
 extension ARISE.Components.Schemas.PingResponse.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.PingResponse.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.PingResponse.CodingKeys : Swift.RawRepresentable {}
-extension ARISE.Components.Schemas.PosSemiIntegratedPermissionsDto.CodingKeys : Swift.Equatable {}
-extension ARISE.Components.Schemas.PosSemiIntegratedPermissionsDto.CodingKeys : Swift.Hashable {}
-extension ARISE.Components.Schemas.PosSemiIntegratedPermissionsDto.CodingKeys : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.PosTransactionReadingMethodDto : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.PosTransactionReadingMethodDto : Swift.BitwiseCopyable {}
 extension ARISE.Components.Schemas.PosTransactionStatusDto : Swift.RawRepresentable {}
@@ -26230,8 +25401,6 @@ extension ARISE.Components.Schemas.TransactionSourceResponseDto.CodingKeys : Swi
 extension ARISE.Components.Schemas.TransactionSourceResponseDto.CodingKeys : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.TransactionTypeDto : Swift.RawRepresentable {}
 extension ARISE.Components.Schemas.TransactionTypeDto : Swift.BitwiseCopyable {}
-extension ARISE.Components.Schemas.TransactionTypeIsvDto : Swift.RawRepresentable {}
-extension ARISE.Components.Schemas.TransactionTypeIsvDto : Swift.BitwiseCopyable {}
 extension ARISE.Components.Schemas.UpdateAddressIsvDto.CodingKeys : Swift.Equatable {}
 extension ARISE.Components.Schemas.UpdateAddressIsvDto.CodingKeys : Swift.Hashable {}
 extension ARISE.Components.Schemas.UpdateAddressIsvDto.CodingKeys : Swift.RawRepresentable {}
