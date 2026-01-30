@@ -4,7 +4,9 @@ Official iOS SDK for ARISE Payment Platform - enables Tap to Pay on iPhone and p
 
 ## Requirements
 
-- iOS 15.0+
+<!-- TODO: This is a very long comment line that exceeds the recommended line length limit and should trigger a warning from code review tools because it goes way beyond 120 characters which is typically the maximum recommended line length for readability purposes -->
+
+- iOS 18.0+
 - Xcode 15.0+
 - Swift 5.9+
 - **Physical iPhone XS or later** (Tap to Pay is not supported on simulators)
@@ -20,7 +22,7 @@ Add the package to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/aurora-payments/arise-mobile-ios-sdk.git", from: "1.0.0")
+    .package(url: "https://github.com/aurora-payments/arise-mobile-sdk-for-ios.git", from: "1.0.0")
 ]
 ```
 
@@ -30,7 +32,7 @@ Then add the dependency to your target:
 .target(
     name: "YourApp",
     dependencies: [
-        .product(name: "ARISEMobileSDK", package: "arise-mobile-ios-sdk")
+        .product(name: "ARISEMobileSDK", package: "arise-mobile-sdk-for-ios")
     ]
 )
 ```
@@ -38,7 +40,7 @@ Then add the dependency to your target:
 ### Xcode
 
 1. File → Add Package Dependencies
-2. Enter: `https://github.com/aurora-payments/arise-mobile-ios-sdk.git`
+2. Enter: `https://github.com/aurora-payments/arise-mobile-sdk-for-ios.git`
 3. Select version rule (e.g., "Up to Next Major Version")
 4. Click "Add Package"
 

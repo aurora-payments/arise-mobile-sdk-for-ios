@@ -15,7 +15,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        // Required for AriseMobile.xcframework
+        // Required for ARISE.xcframework
         .package(url: "https://github.com/apple/swift-openapi-runtime.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-openapi-urlsession.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-http-types.git", from: "1.0.0"),
@@ -26,8 +26,8 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(
-            name: "AriseMobile",
-            path: "./libs/AriseMobile.xcframework"
+            name: "ARISE",
+            path: "./libs/ARISE.xcframework"
         ),
         .binaryTarget(
             name: "CloudCommerce",
@@ -36,7 +36,7 @@ let package = Package(
         .target(
             name: "ARISEMobileSDK",
             dependencies: [
-                "AriseMobile",
+                "ARISE",
                 "CloudCommerce",
                 .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
                 .product(name: "OpenAPIURLSession", package: "swift-openapi-urlsession"),
