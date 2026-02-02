@@ -23890,6 +23890,26 @@ public enum CreateMethodId : Swift.Int, Swift.CaseIterable {
   public func getDeviceInfo(deviceId: Swift.String) async throws -> ARISE.DeviceInfo
   @objc deinit
 }
+public enum ZeroCostProcessingOption : Swift.Int, Swift.Codable, Swift.Equatable, Swift.CaseIterable {
+  case noZeroCost
+  case cashDiscount
+  case dualPricing
+  case surcharge
+  public var displayName: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias AllCases = [ARISE.ZeroCostProcessingOption]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [ARISE.ZeroCostProcessingOption] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 public enum Environment {
   case production
   case uat
@@ -24071,20 +24091,113 @@ public enum AuthenticationError : Swift.Error, Foundation.LocalizedError {
 public struct AchDetailsDto : Swift.Equatable {
   public let customerAccountNumber: Swift.String?
   public let customerRoutingNumber: Swift.String?
-  public let accountHolderType: Swift.String?
-  public let accountHolderTypeId: Swift.Int32?
-  public let accountType: Swift.String?
-  public let accountTypeId: Swift.Int32?
+  public let accountHolderType: ARISE.AccountHolderType?
+  public let accountType: ARISE.AccountType?
   public let taxId: Swift.String?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(customerAccountNumber: Swift.String? = nil, customerRoutingNumber: Swift.String? = nil, accountHolderType: Swift.String? = nil, accountHolderTypeId: Swift.Int32? = nil, accountType: Swift.String? = nil, accountTypeId: Swift.Int32? = nil, taxId: Swift.String? = nil)
+  public init(customerAccountNumber: Swift.String? = nil, customerRoutingNumber: Swift.String? = nil, accountHolderType: ARISE.AccountHolderType? = nil, accountType: ARISE.AccountType? = nil, taxId: Swift.String? = nil)
   #endif
   public static func == (a: ARISE.AchDetailsDto, b: ARISE.AchDetailsDto) -> Swift.Bool
 }
+public enum AccountHolderType : Swift.Int, Swift.Codable, Swift.Equatable, Swift.CaseIterable {
+  case business
+  case personal
+  public var displayName: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias AllCases = [ARISE.AccountHolderType]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [ARISE.AccountHolderType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum AccountType : Swift.Int, Swift.Codable, Swift.Equatable, Swift.CaseIterable {
+  case checking
+  case savings
+  public var displayName: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias AllCases = [ARISE.AccountType]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [ARISE.AccountType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum Currency : Swift.Int, Swift.Codable, Swift.Equatable, Swift.CaseIterable {
+  case usd
+  public var displayName: Swift.String {
+    get
+  }
+  public var isoCode: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias AllCases = [ARISE.Currency]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [ARISE.Currency] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum PaymentMethodType : Swift.Int, Swift.Codable, Swift.Equatable, Swift.CaseIterable {
+  case card
+  case electronicCheck
+  case cash
+  public var displayName: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias AllCases = [ARISE.PaymentMethodType]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [ARISE.PaymentMethodType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum OperationType : Swift.Int, Swift.Codable, Swift.Equatable, Swift.CaseIterable {
+  case authorization
+  case sale
+  case capture
+  case void
+  case refund
+  public var displayName: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias AllCases = [ARISE.OperationType]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [ARISE.OperationType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 public struct PaymentSettingsResponse {
   public let availableCurrencies: [ARISE.NamedOption]
-  public let zeroCostProcessingOptionId: Swift.Int32?
-  public let zeroCostProcessingOption: Swift.String?
+  public let zeroCostProcessingOption: ARISE.ZeroCostProcessingOption?
   public let defaultSurchargeRate: Swift.Double?
   public let defaultCashDiscountRate: Swift.Double?
   public let defaultDualPricingRate: Swift.Double?
@@ -24096,12 +24209,11 @@ public struct PaymentSettingsResponse {
   public let avs: ARISE.AvsOptions?
   public let companyName: Swift.String?
   public let mccCode: Swift.String?
-  public let currencyCode: Swift.String?
-  public let currencyId: Swift.Int32?
+  public let currency: ARISE.Currency?
   public let countryCode: Swift.String?
   public let ttpIosTerminalProfileId: Swift.String?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(availableCurrencies: [ARISE.NamedOption], zeroCostProcessingOptionId: Swift.Int32?, zeroCostProcessingOption: Swift.String?, defaultSurchargeRate: Swift.Double?, defaultCashDiscountRate: Swift.Double?, defaultDualPricingRate: Swift.Double?, isTipsEnabled: Swift.Bool, defaultTipsOptions: [Swift.Double]?, availableCardTypes: [ARISE.NamedOption], availableTransactionTypes: [ARISE.NamedOption], availablePaymentProcessors: [ARISE.PaymentProcessor], avs: ARISE.AvsOptions?, companyName: Swift.String? = nil, mccCode: Swift.String? = nil, currencyCode: Swift.String? = nil, currencyId: Swift.Int32? = nil, countryCode: Swift.String? = nil, ttpIosTerminalProfileId: Swift.String? = nil)
+  public init(availableCurrencies: [ARISE.NamedOption], zeroCostProcessingOption: ARISE.ZeroCostProcessingOption?, defaultSurchargeRate: Swift.Double?, defaultCashDiscountRate: Swift.Double?, defaultDualPricingRate: Swift.Double?, isTipsEnabled: Swift.Bool, defaultTipsOptions: [Swift.Double]?, availableCardTypes: [ARISE.NamedOption], availableTransactionTypes: [ARISE.NamedOption], availablePaymentProcessors: [ARISE.PaymentProcessor], avs: ARISE.AvsOptions?, companyName: Swift.String? = nil, mccCode: Swift.String? = nil, currency: ARISE.Currency? = nil, countryCode: Swift.String? = nil, ttpIosTerminalProfileId: Swift.String? = nil)
   #endif
 }
 public struct ApiPermissionsResponse : Swift.Codable, Swift.Hashable, Swift.Sendable {
@@ -24145,7 +24257,7 @@ public struct AmountDto {
 public struct CardTransactionRequest {
   public let paymentProcessorId: Swift.String
   public let amount: Swift.Double
-  public let currencyId: Swift.Int32
+  public let currency: ARISE.Currency
   public let cardDataSource: ARISE.CardDataSource
   public let paymentMethodId: Swift.String?
   public let accountNumber: Swift.String?
@@ -24173,7 +24285,7 @@ public struct CardTransactionRequest {
   public let l2: ARISE.L2Data?
   public let l3: ARISE.L3Data?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(paymentProcessorId: Swift.String, amount: Swift.Double, currencyId: Swift.Int32, cardDataSource: ARISE.CardDataSource, paymentMethodId: Swift.String? = nil, accountNumber: Swift.String? = nil, expirationMonth: Swift.Int32? = nil, expirationYear: Swift.Int32? = nil, securityCode: Swift.String? = nil, track1: Swift.String? = nil, track2: Swift.String? = nil, emvTags: [Swift.String]? = nil, emvPaymentAppVersion: Swift.String? = nil, customerId: Swift.String? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, billingAddress: ARISE.AddressDto? = nil, shippingAddress: ARISE.AddressDto? = nil, contactInfo: ARISE.ContactInfoDto? = nil, pin: Swift.String? = nil, pinKsn: Swift.String? = nil, emvFallbackCondition: ARISE.EMVFallbackCondition? = nil, emvFallbackLastChipRead: ARISE.EMVFallbackLastChipRead? = nil, referenceId: Swift.String? = nil, customerInitiatedTransaction: Swift.Bool? = nil, l2: ARISE.L2Data? = nil, l3: ARISE.L3Data? = nil) throws
+  public init(paymentProcessorId: Swift.String, amount: Swift.Double, currency: ARISE.Currency, cardDataSource: ARISE.CardDataSource, paymentMethodId: Swift.String? = nil, accountNumber: Swift.String? = nil, expirationMonth: Swift.Int32? = nil, expirationYear: Swift.Int32? = nil, securityCode: Swift.String? = nil, track1: Swift.String? = nil, track2: Swift.String? = nil, emvTags: [Swift.String]? = nil, emvPaymentAppVersion: Swift.String? = nil, customerId: Swift.String? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, billingAddress: ARISE.AddressDto? = nil, shippingAddress: ARISE.AddressDto? = nil, contactInfo: ARISE.ContactInfoDto? = nil, pin: Swift.String? = nil, pinKsn: Swift.String? = nil, emvFallbackCondition: ARISE.EMVFallbackCondition? = nil, emvFallbackLastChipRead: ARISE.EMVFallbackLastChipRead? = nil, referenceId: Swift.String? = nil, customerInitiatedTransaction: Swift.Bool? = nil, l2: ARISE.L2Data? = nil, l3: ARISE.L3Data? = nil) throws
   #endif
 }
 public struct SourceResponseDto {
@@ -24189,10 +24301,8 @@ public struct SuggestedTipsDto {
 public struct CardTransactionResponse {
   public let transactionId: Swift.String?
   public let transactionDateTime: Foundation.Date?
-  public let typeId: Swift.Int32?
-  public let type: Swift.String?
-  public let statusId: Swift.Int32?
-  public let status: Swift.String?
+  public let transactionType: ARISE.TransactionType?
+  public let status: ARISE.TransactionStatus?
   public let processedAmount: Swift.Double?
   public let details: ARISE.TransactionResponseDetailsDto?
   public let transactionReceipt: ARISE.TransactionReceiptDto?
@@ -24203,12 +24313,11 @@ public struct CardTransactionResponse {
   }
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(transactionId: Swift.String?, transactionDateTime: Foundation.Date?, typeId: Swift.Int32?, type: Swift.String?, statusId: Swift.Int32?, status: Swift.String?, processedAmount: Swift.Double?, details: ARISE.TransactionResponseDetailsDto?, transactionReceipt: ARISE.TransactionReceiptDto?, avsResponse: ARISE.AvsResponseDto?)
+  public init(transactionId: Swift.String?, transactionDateTime: Foundation.Date?, transactionType: ARISE.TransactionType?, status: ARISE.TransactionStatus?, processedAmount: Swift.Double?, details: ARISE.TransactionResponseDetailsDto?, transactionReceipt: ARISE.TransactionReceiptDto?, avsResponse: ARISE.AvsResponseDto?)
   #endif
 }
 public struct AvailableOperation {
-  public let typeId: Swift.Int
-  public let type: Swift.String?
+  public let operationType: ARISE.OperationType?
   public let availableAmount: Swift.Double?
   public let suggestedTips: Swift.Array<ARISE.SuggestedTipsDto>?
 }
@@ -24264,28 +24373,26 @@ public enum AvsResponseResult : Swift.Int, Swift.Equatable {
 }
 public struct CalculateAmountRequest {
   public let amount: Swift.Double
-  public let currencyId: Swift.Int32
+  public let currency: ARISE.Currency
   public let percentageOffRate: Swift.Double?
   public let surchargeRate: Swift.Double?
   public let tipAmount: Swift.Double?
   public let tipRate: Swift.Double?
   public let useCardPrice: Swift.Bool?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(amount: Swift.Double, currencyId: Swift.Int32 = 1, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil, useCardPrice: Swift.Bool? = nil)
+  public init(amount: Swift.Double, currency: ARISE.Currency = .usd, percentageOffRate: Swift.Double? = nil, surchargeRate: Swift.Double? = nil, tipAmount: Swift.Double? = nil, tipRate: Swift.Double? = nil, useCardPrice: Swift.Bool? = nil)
   #endif
 }
 public struct CalculateAmountResponse {
-  public let currencyId: Swift.Int32?
-  public let currency: Swift.String?
-  public let zeroCostProcessingOptionId: Swift.Int32?
-  public let zeroCostProcessingOption: Swift.String?
+  public let currency: ARISE.Currency?
+  public let zeroCostProcessingOption: ARISE.ZeroCostProcessingOption?
   public let useCardPrice: Swift.Bool?
   public let cash: ARISE.AmountDto?
   public let creditCard: ARISE.AmountDto?
   public let debitCard: ARISE.AmountDto?
   public let ach: ARISE.AmountDto?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(currencyId: Swift.Int32?, currency: Swift.String?, zeroCostProcessingOptionId: Swift.Int32?, zeroCostProcessingOption: Swift.String?, useCardPrice: Swift.Bool?, cash: ARISE.AmountDto?, creditCard: ARISE.AmountDto?, debitCard: ARISE.AmountDto?, ach: ARISE.AmountDto?)
+  public init(currency: ARISE.Currency?, zeroCostProcessingOption: ARISE.ZeroCostProcessingOption?, useCardPrice: Swift.Bool?, cash: ARISE.AmountDto?, creditCard: ARISE.AmountDto?, debitCard: ARISE.AmountDto?, ach: ARISE.AmountDto?)
   #endif
 }
 public enum CardDataSource : Swift.Int, Swift.Equatable, Swift.CaseIterable {
@@ -24517,25 +24624,20 @@ public struct TransactionDetails {
   public let transactionDateTime: Foundation.Date?
   public let orderNumber: Swift.String?
   public let amount: ARISE.TransactionReceiptAmountDto?
-  public let currencyId: Swift.Int32?
-  public let currency: Swift.String?
+  public let currency: ARISE.Currency?
   @available(*, deprecated, message: "Use amount.baseAmount instead")
   public let baseAmount: Swift.Double?
   @available(*, deprecated, message: "Use amount.totalAmount instead")
   public let totalAmount: Swift.Double?
   public let processorId: Swift.String?
   public let processor: Swift.String?
-  public let operationTypeId: Swift.Int32?
-  public let operationType: Swift.String?
-  public let transactionTypeId: Swift.Int32?
-  public let transactionType: Swift.String?
-  public let paymentMethodTypeId: Swift.Int32?
-  public let paymentMethodType: Swift.String?
+  public let operationType: ARISE.OperationType?
+  public let transactionType: ARISE.TransactionType?
+  public let paymentMethodType: ARISE.PaymentMethodType?
   public let customerId: Swift.String?
   public let customerPan: Swift.String?
   public let cardTokenType: ARISE.CardTokenType?
-  public let statusId: Swift.Int32?
-  public let status: Swift.String?
+  public let status: ARISE.TransactionStatus?
   public let merchantName: Swift.String?
   public let merchantAddress: Swift.String?
   public let merchantPhoneNumber: Swift.String?
@@ -24558,7 +24660,7 @@ public struct TransactionDetails {
   public let tsysCardDetails: ARISE.TsysCardDetailsDto?
   public let achDetails: ARISE.AchDetailsDto?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(transactionId: Swift.String?, transactionDateTime: Foundation.Date?, orderNumber: Swift.String?, amount: ARISE.TransactionReceiptAmountDto?, currencyId: Swift.Int32?, currency: Swift.String?, baseAmount: Swift.Double?, totalAmount: Swift.Double?, processorId: Swift.String?, processor: Swift.String?, operationTypeId: Swift.Int32?, operationType: Swift.String?, transactionTypeId: Swift.Int32?, transactionType: Swift.String?, paymentMethodTypeId: Swift.Int32?, paymentMethodType: Swift.String?, customerId: Swift.String?, customerPan: Swift.String?, cardTokenType: ARISE.CardTokenType?, statusId: Swift.Int32?, status: Swift.String?, merchantName: Swift.String?, merchantAddress: Swift.String?, merchantPhoneNumber: Swift.String?, merchantEmailAddress: Swift.String?, merchantWebsite: Swift.String?, authCode: Swift.String?, source: ARISE.SourceResponseDto?, responseCode: Swift.String?, responseDescription: Swift.String?, cardholderAuthenticationMethodId: ARISE.CardholderAuthenticationMethod?, cardholderAuthenticationMethod: Swift.String?, cvmResultMsg: Swift.String?, cardDataSourceId: ARISE.CardDataSource?, cardDataSource: Swift.String?, cardProcessingDetails: ARISE.CardDetailsDto?, achProcessingDetails: ARISE.ElectronicCheckDetails?, availableOperations: [ARISE.TransactionOperation]?, avsResponse: ARISE.AvsResponseDto?, emvTags: ARISE.EmvTagsDto?, tsysCardDetails: ARISE.TsysCardDetailsDto?, achDetails: ARISE.AchDetailsDto?)
+  public init(transactionId: Swift.String?, transactionDateTime: Foundation.Date?, orderNumber: Swift.String?, amount: ARISE.TransactionReceiptAmountDto?, currency: ARISE.Currency?, baseAmount: Swift.Double?, totalAmount: Swift.Double?, processorId: Swift.String?, processor: Swift.String?, operationType: ARISE.OperationType?, transactionType: ARISE.TransactionType?, paymentMethodType: ARISE.PaymentMethodType?, customerId: Swift.String?, customerPan: Swift.String?, cardTokenType: ARISE.CardTokenType?, status: ARISE.TransactionStatus?, merchantName: Swift.String?, merchantAddress: Swift.String?, merchantPhoneNumber: Swift.String?, merchantEmailAddress: Swift.String?, merchantWebsite: Swift.String?, authCode: Swift.String?, source: ARISE.SourceResponseDto?, responseCode: Swift.String?, responseDescription: Swift.String?, cardholderAuthenticationMethodId: ARISE.CardholderAuthenticationMethod?, cardholderAuthenticationMethod: Swift.String?, cvmResultMsg: Swift.String?, cardDataSourceId: ARISE.CardDataSource?, cardDataSource: Swift.String?, cardProcessingDetails: ARISE.CardDetailsDto?, achProcessingDetails: ARISE.ElectronicCheckDetails?, availableOperations: [ARISE.TransactionOperation]?, avsResponse: ARISE.AvsResponseDto?, emvTags: ARISE.EmvTagsDto?, tsysCardDetails: ARISE.TsysCardDetailsDto?, achDetails: ARISE.AchDetailsDto?)
   #endif
 }
 public struct TransactionFilters {
@@ -24603,21 +24705,16 @@ public struct TransactionReceiptDto {
   public let transactionDateTime: Foundation.Date?
   public let orderNumber: Swift.String?
   public let amount: ARISE.TransactionReceiptAmountDto?
-  public let currencyId: Swift.Int32?
-  public let currency: Swift.String?
+  public let currency: ARISE.Currency?
   public let processorId: Swift.String?
   public let processor: Swift.String?
-  public let operationTypeId: Swift.Int32?
-  public let operationType: Swift.String?
-  public let transactionTypeId: Swift.Int32?
-  public let transactionType: Swift.String?
-  public let paymentMethodTypeId: Swift.Int32?
-  public let paymentMethodType: Swift.String?
+  public let operationType: ARISE.OperationType?
+  public let transactionType: ARISE.TransactionType?
+  public let paymentMethodType: ARISE.PaymentMethodType?
   public let customerId: Swift.String?
   public let customerPan: Swift.String?
   public let cardTokenType: ARISE.CardTokenType?
-  public let statusId: Swift.Int32?
-  public let status: Swift.String?
+  public let status: ARISE.TransactionStatus?
   public let merchantName: Swift.String?
   public let merchantAddress: Swift.String?
   public let merchantPhoneNumber: Swift.String?
@@ -24638,16 +24735,14 @@ public struct TransactionReceiptDto {
   public let avsResponse: ARISE.AvsResponseDto?
   public let emvTags: ARISE.EmvTagsDto?
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(transactionId: Swift.String?, transactionDateTime: Foundation.Date?, orderNumber: Swift.String?, amount: ARISE.TransactionReceiptAmountDto?, currencyId: Swift.Int32?, currency: Swift.String?, processorId: Swift.String?, processor: Swift.String?, operationTypeId: Swift.Int32?, operationType: Swift.String?, transactionTypeId: Swift.Int32?, transactionType: Swift.String?, paymentMethodTypeId: Swift.Int32?, paymentMethodType: Swift.String?, customerId: Swift.String?, customerPan: Swift.String?, cardTokenType: ARISE.CardTokenType?, statusId: Swift.Int32?, status: Swift.String?, merchantName: Swift.String?, merchantAddress: Swift.String?, merchantPhoneNumber: Swift.String?, merchantEmailAddress: Swift.String?, merchantWebsite: Swift.String?, authCode: Swift.String?, source: ARISE.SourceResponseDto?, responseCode: Swift.String?, responseDescription: Swift.String?, cardholderAuthenticationMethodId: ARISE.CardholderAuthenticationMethod?, cardholderAuthenticationMethod: Swift.String?, cvmResultMsg: Swift.String?, cardDataSourceId: ARISE.CardDataSource?, cardDataSource: Swift.String?, cardProcessingDetails: ARISE.CardDetailsDto?, achProcessingDetails: ARISE.ElectronicCheckDetails?, availableOperations: [ARISE.TransactionOperation]?, avsResponse: ARISE.AvsResponseDto?, emvTags: ARISE.EmvTagsDto?)
+  public init(transactionId: Swift.String?, transactionDateTime: Foundation.Date?, orderNumber: Swift.String?, amount: ARISE.TransactionReceiptAmountDto?, currency: ARISE.Currency?, processorId: Swift.String?, processor: Swift.String?, operationType: ARISE.OperationType?, transactionType: ARISE.TransactionType?, paymentMethodType: ARISE.PaymentMethodType?, customerId: Swift.String?, customerPan: Swift.String?, cardTokenType: ARISE.CardTokenType?, status: ARISE.TransactionStatus?, merchantName: Swift.String?, merchantAddress: Swift.String?, merchantPhoneNumber: Swift.String?, merchantEmailAddress: Swift.String?, merchantWebsite: Swift.String?, authCode: Swift.String?, source: ARISE.SourceResponseDto?, responseCode: Swift.String?, responseDescription: Swift.String?, cardholderAuthenticationMethodId: ARISE.CardholderAuthenticationMethod?, cardholderAuthenticationMethod: Swift.String?, cvmResultMsg: Swift.String?, cardDataSourceId: ARISE.CardDataSource?, cardDataSource: Swift.String?, cardProcessingDetails: ARISE.CardDetailsDto?, achProcessingDetails: ARISE.ElectronicCheckDetails?, availableOperations: [ARISE.TransactionOperation]?, avsResponse: ARISE.AvsResponseDto?, emvTags: ARISE.EmvTagsDto?)
   #endif
 }
 public struct TransactionResponse {
   public let transactionId: Swift.String?
   public let transactionDateTime: Foundation.Date?
-  public let typeId: Swift.Int32?
-  public let type: Swift.String?
-  public let statusId: Swift.Int32?
-  public let status: Swift.String?
+  public let transactionType: ARISE.TransactionType?
+  public let status: ARISE.TransactionStatus?
   public let details: ARISE.TransactionResponseDetailsDto?
   public let transactionReceipt: ARISE.TransactionReceiptDto?
   #if compiler(>=5.3) && $NonescapableTypes
@@ -24666,7 +24761,7 @@ public struct TransactionResponse {
   }
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(transactionId: Swift.String?, transactionDateTime: Foundation.Date?, typeId: Swift.Int32?, type: Swift.String?, statusId: Swift.Int32?, status: Swift.String?, details: ARISE.TransactionResponseDetailsDto?, transactionReceipt: ARISE.TransactionReceiptDto?)
+  public init(transactionId: Swift.String?, transactionDateTime: Foundation.Date?, transactionType: ARISE.TransactionType?, status: ARISE.TransactionStatus?, details: ARISE.TransactionResponseDetailsDto?, transactionReceipt: ARISE.TransactionReceiptDto?)
   #endif
 }
 public struct TransactionResponseDetailsDto {
@@ -24688,16 +24783,24 @@ public struct TransactionsResponse {
   public init(items: [ARISE.TransactionSummary], total: Swift.Int)
 }
 public enum TransactionStatus : Swift.String, Swift.CaseIterable {
-  case pending
-  case processing
-  case approved
-  case completed
+  case authorized
+  case captured
+  case voided
+  case refunded
+  case verified
   case settled
+  case partiallyAuthorized
+  case informational
+  case scheduled
+  case cancelled
+  case chargedBack
+  case inProgress
+  case cleared
+  case held
+  case heldByProcessor
+  case pending
   case declined
   case failed
-  case rejected
-  case cancelled
-  case voided
   public var displayName: Swift.String {
     get
   }
@@ -24721,13 +24824,11 @@ public struct TransactionSummary {
   public let totalAmount: Swift.Double
   public let surchargeAmount: Swift.Double?
   public let surchargePercentage: Swift.Double?
-  public let currencyCode: Swift.String?
-  public let currencyId: Swift.Int32?
+  public let currency: ARISE.Currency?
   public let merchant: Swift.String?
   public let merchantId: Swift.String
   public let operationMode: Swift.String?
-  public let paymentMethodType: Swift.String?
-  public let paymentMethodTypeId: Swift.Int?
+  public let paymentMethodType: ARISE.PaymentMethodType?
   public let paymentMethodName: Swift.String?
   public let customerName: Swift.String?
   public let customerCompany: Swift.String?
@@ -24735,25 +24836,31 @@ public struct TransactionSummary {
   public let cardTokenType: ARISE.CardTokenType?
   public let customerEmail: Swift.String?
   public let customerPhone: Swift.String?
-  public let status: Swift.String
-  public let statusId: Swift.Int
-  public let typeId: Swift.Int
-  public let type: Swift.String?
+  public let status: ARISE.TransactionStatus?
+  public let transactionType: ARISE.TransactionType?
   public let batchId: Swift.String?
   public let source: ARISE.SourceResponseDto
   public let availableOperations: Swift.Array<ARISE.AvailableOperation>?
   public let amount: ARISE.AmountDto
   #if compiler(>=5.3) && $NonescapableTypes
-  public init(id: Swift.String, paymentProcessorId: Swift.String = "", date: Foundation.Date? = nil, baseAmount: Swift.Double, totalAmount: Swift.Double, surchargeAmount: Swift.Double? = nil, surchargePercentage: Swift.Double? = nil, currencyCode: Swift.String? = nil, currencyId: Swift.Int32? = nil, merchant: Swift.String? = nil, merchantId: Swift.String, operationMode: Swift.String? = nil, paymentMethodType: Swift.String? = nil, paymentMethodTypeId: Swift.Int? = nil, paymentMethodName: Swift.String? = nil, customerName: Swift.String? = nil, customerCompany: Swift.String? = nil, customerPan: Swift.String? = nil, cardTokenType: ARISE.CardTokenType? = nil, customerEmail: Swift.String? = nil, customerPhone: Swift.String? = nil, status: Swift.String, statusId: Swift.Int, typeId: Swift.Int, type: Swift.String? = nil, batchId: Swift.String? = nil, source: ARISE.SourceResponseDto, availableOperations: Swift.Array<ARISE.AvailableOperation>? = nil, amount: ARISE.AmountDto, authCode: Swift.String? = nil, responseCode: Swift.String? = nil)
+  public init(id: Swift.String, paymentProcessorId: Swift.String = "", date: Foundation.Date? = nil, baseAmount: Swift.Double, totalAmount: Swift.Double, surchargeAmount: Swift.Double? = nil, surchargePercentage: Swift.Double? = nil, currency: ARISE.Currency? = nil, merchant: Swift.String? = nil, merchantId: Swift.String, operationMode: Swift.String? = nil, paymentMethodType: ARISE.PaymentMethodType? = nil, paymentMethodName: Swift.String? = nil, customerName: Swift.String? = nil, customerCompany: Swift.String? = nil, customerPan: Swift.String? = nil, cardTokenType: ARISE.CardTokenType? = nil, customerEmail: Swift.String? = nil, customerPhone: Swift.String? = nil, status: ARISE.TransactionStatus? = nil, transactionType: ARISE.TransactionType? = nil, batchId: Swift.String? = nil, source: ARISE.SourceResponseDto, availableOperations: Swift.Array<ARISE.AvailableOperation>? = nil, amount: ARISE.AmountDto)
   #endif
 }
 public enum TransactionType : Swift.String, Swift.CaseIterable {
+  case authorization
   case sale
-  case auth
   case capture
   case void
   case refund
-  case return_
+  case cardAuthentication
+  case refundWORef
+  case tipAdjustment
+  case achDebit
+  case achRefund
+  case achHold
+  case achUnHold
+  case achCancel
+  case achCredit
   public var displayName: Swift.String {
     get
   }
@@ -25469,11 +25576,23 @@ extension ARISE.Components.Schemas.KeyValuePair2.CodingKeys : Swift.RawRepresent
 extension ARISE.CreateMethodId : Swift.Equatable {}
 extension ARISE.CreateMethodId : Swift.Hashable {}
 extension ARISE.CreateMethodId : Swift.RawRepresentable {}
+extension ARISE.ZeroCostProcessingOption : Swift.Hashable {}
+extension ARISE.ZeroCostProcessingOption : Swift.RawRepresentable {}
 extension ARISE.Environment : Swift.Equatable {}
 extension ARISE.Environment : Swift.Hashable {}
 extension ARISE.TTPTransactionStatus : Swift.Equatable {}
 extension ARISE.TTPTransactionStatus : Swift.Hashable {}
 extension ARISE.TTPTransactionStatus : Swift.RawRepresentable {}
+extension ARISE.AccountHolderType : Swift.Hashable {}
+extension ARISE.AccountHolderType : Swift.RawRepresentable {}
+extension ARISE.AccountType : Swift.Hashable {}
+extension ARISE.AccountType : Swift.RawRepresentable {}
+extension ARISE.Currency : Swift.Hashable {}
+extension ARISE.Currency : Swift.RawRepresentable {}
+extension ARISE.PaymentMethodType : Swift.Hashable {}
+extension ARISE.PaymentMethodType : Swift.RawRepresentable {}
+extension ARISE.OperationType : Swift.Hashable {}
+extension ARISE.OperationType : Swift.RawRepresentable {}
 extension ARISE.AvsAction : Swift.Hashable {}
 extension ARISE.AvsAction : Swift.RawRepresentable {}
 extension ARISE.AvsCodeGroupType : Swift.Hashable {}
