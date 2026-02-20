@@ -20,18 +20,21 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-openapi-urlsession.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-http-types.git", from: "1.0.0"),
         // Required for CloudCommerce.xcframework
-        .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", from: "1.8.0"),
+        // Pinned to exact version for supply chain security (third-party crypto library)
+        .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", exact: "1.8.4"),
         .package(url: "https://github.com/apple/swift-asn1.git", from: "1.2.0"),
         .package(url: "https://github.com/apple/swift-certificates.git", from: "1.0.0"),
     ],
     targets: [
         .binaryTarget(
             name: "ARISE",
-            path: "./libs/ARISE.xcframework"
+            url: "https://github.com/aurora-payments/arise-mobile-sdk-for-ios/releases/download/v0.0.7-pre-release-1/ARISE.xcframework.zip",
+            checksum: "4277b4604f4352d51d96247a714406ff6bdc1b4f40aaba67fc582287b13fd487"
         ),
         .binaryTarget(
             name: "CloudCommerce",
-            path: "./libs/CloudCommerce.xcframework"
+            url: "https://github.com/aurora-payments/arise-mobile-sdk-for-ios/releases/download/v0.0.7-pre-release-1/CloudCommerce.xcframework.zip",
+            checksum: "10b7a8a3e2b438729356eeca152853334500e8bd59d128690470ff246bfddd66"
         ),
         .target(
             name: "ARISEMobileSDK",

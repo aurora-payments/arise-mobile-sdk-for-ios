@@ -1,4 +1,0 @@
-framework module ARISE {
-  header "ARISE-Swift.h"
-  requires objc
-}
