@@ -4,15 +4,56 @@ Official iOS SDK for ARISE Payment Platform - enables Tap to Pay on iPhone and p
 
 ## Requirements
 
-<!-- TODO: This is a very long comment line that exceeds the recommended line length limit and should trigger a warning from code review tools because it goes way beyond 120 characters which is typically the maximum recommended line length for readability purposes -->
-
 - iOS 18.0+
-- Xcode 15.0+
-- Swift 5.9+
+- Xcode 16.0+
+- Swift 6.0+
 - **Physical iPhone XS or later** (Tap to Pay is not supported on simulators)
 - [Apple Sandbox Account](https://developer.apple.com/help/app-store-connect/test-in-app-purchases/create-a-sandbox-apple-account/) for testing
 
 > **Important:** Payment transactions work only on physical iOS devices and are not supported on simulators.
+
+## Versioning & Branches
+
+This repository contains pre-built SDK frameworks. Choose the right branch based on your needs:
+
+| Branch | Stability | Version Format | Use Case |
+|--------|-----------|----------------|----------|
+| `release` | Stable | `v1.2.3` | Production apps, App Store submissions |
+| `main` | Development | `v1.2.3-pre-release-N` | Testing new features, QA builds |
+
+### Production Apps (Recommended)
+
+Use semantic versioning to automatically receive patch and minor updates:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/aurora-payments/arise-mobile-sdk-for-ios.git", from: "1.0.0")
+]
+```
+
+Or pin to an exact version for maximum stability:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/aurora-payments/arise-mobile-sdk-for-ios.git", exact: "1.2.3")
+]
+```
+
+### Testing Pre-releases
+
+Pre-release builds are automatically published to `main` branch for testing:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/aurora-payments/arise-mobile-sdk-for-ios.git", branch: "main")
+]
+```
+
+> **Warning:** Pre-releases may contain breaking changes and should NOT be used in production apps.
+
+### Available Versions
+
+See [Releases](https://github.com/aurora-payments/arise-mobile-sdk-for-ios/releases) for all available versions and changelogs.
 
 ## Installation
 
