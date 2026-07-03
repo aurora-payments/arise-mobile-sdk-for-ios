@@ -28,13 +28,13 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "ARISE",
-            url: "https://github.com/aurora-payments/arise-mobile-sdk-for-ios/releases/download/v1.0.2-pre-release-3/ARISE.xcframework.zip",
-            checksum: "4e0d8d5b30c0eea1c1fe5707201f4689a5a4929602b59b862e309760ecc2c492"
+            url: "https://github.com/aurora-payments/arise-mobile-sdk-for-ios/releases/download/v1.0.4-pre-release-1/ARISE.xcframework.zip",
+            checksum: "6053c70d9088cd67eaa790967e9953543e234c8b724ec60f85916ce788c00e7b"
         ),
         .binaryTarget(
             name: "CloudCommerce",
-            url: "https://github.com/aurora-payments/arise-mobile-sdk-for-ios/releases/download/v1.0.2-pre-release-3/CloudCommerce.xcframework.zip",
-            checksum: "f1f5ec077083198cb5da80a0391b1d9933f69cab1e11056f75243d3c1a06a52a"
+            url: "https://github.com/aurora-payments/arise-mobile-sdk-for-ios/releases/download/v1.0.4-pre-release-1/CloudCommerce.xcframework.zip",
+            checksum: "6767de4b46475b5d78212524cec63c0182b89e5e423abafbd596508e6b9fe990"
         ),
         .target(
             name: "ARISEMobileSDK",
